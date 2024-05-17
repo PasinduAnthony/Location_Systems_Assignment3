@@ -13,14 +13,12 @@ document.addEventListener("DOMContentLoaded", function() {
         CQL_FILTER: 'destock_yr=2021',
     }).addTo(map);
 
+    var yearLabel = document.getElementById("slider-label-year");
     var slider = document.getElementById("year-slider");
-    var sliderValue = document.getElementById("slider-value");
-    var yearLabel = document.getElementById("year-label");
 
     slider.addEventListener("input", function() {
-        var year = this.value;
-        sliderValue.textContent = year;
-        yearLabel.textContent = year; 
+        var year = slider.value;
+        yearLabel.textContent = year;
         wmsLayer.setParams({
             CQL_FILTER: 'destock_yr=' + year
         });
