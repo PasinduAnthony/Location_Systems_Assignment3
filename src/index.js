@@ -15,10 +15,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
     var slider = document.getElementById("year-slider");
     var sliderValue = document.getElementById("slider-value");
+    var yearLabel = document.getElementById("year-label");
 
     slider.addEventListener("input", function() {
         var year = this.value;
-        sliderValue.textContent = year; 
+        sliderValue.textContent = year;
+        yearLabel.textContent = year; 
         wmsLayer.setParams({
             CQL_FILTER: 'destock_yr=' + year
         });
