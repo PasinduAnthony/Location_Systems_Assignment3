@@ -11,6 +11,18 @@ document.addEventListener("DOMContentLoaded", function() {
         CQL_FILTER: 'destock_yr=2021',
     });
 
+    var exoticLayer = L.tileLayer.wms('http://localhost:8080/geoserver/webmap/wms', {
+        layers: 'webmap:nz-exotic-polygons-topo-150k',
+        format: 'image/png',
+        transparent: true,
+    });
+
+    var nativeLayer = L.tileLayer.wms('http://localhost:8080/geoserver/webmap/wms', {
+        layers: 'webmap:nz-native-polygons-topo-150k',
+        format: 'image/png',
+        transparent: true,
+    });
+
     var openTopoMap = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
 	maxZoom: 19,
 	attribution: 'Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
@@ -30,7 +42,9 @@ document.addEventListener("DOMContentLoaded", function() {
     };
 
     const overlays = {
-        'Forest cover': wmsLayer
+        'Exotic forest': exoticLayer,
+        'Native forest' : nativeLayer,
+        'Forest cover': wmsLayer,
     };
 
     var layerControl = L.control.layers(baseLayers, overlays).addTo(map);
