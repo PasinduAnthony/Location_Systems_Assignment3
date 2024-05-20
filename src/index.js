@@ -18,22 +18,22 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Creating layer groups to have several "groups" to choose from in layer selection.
     // Reality only single layer choosing, but have not found a better solution.
-
     const osmlayerGroup = L.layerGroup([osm]);
-    const wmsLayerGroup = L.layerGroup([osm, wmsLayer]);
-    const openTopoMapGroup = L.layerGroup([openTopoMap, wmsLayer]);
+    const openTopoMapGroup = L.layerGroup([openTopoMap]);
 
     var map = L.map('map', {
-        layers: [osm]}).setView([-36.848450, 174.762192], 10);
+        layers: [osm, wmsLayer]}).setView([-36.848450, 174.762192], 10);
 
     var baseLayers = {
-        'OSM(only)': osmlayerGroup,
+        'OSM': osmlayerGroup,
         'openTopoMap': openTopoMapGroup,
-        'Forest cover': wmsLayerGroup
     };
 
-    var layerControl = L.control.layers(baseLayers).addTo(map);
+    const overlays = {
+        'Forest cover': wmsLayer
+    };
 
+    var layerControl = L.control.layers(baseLayers, overlays).addTo(map);
     var yearLabel = document.getElementById("slider-label-year");
     var slider = document.getElementById("year-slider");
 
