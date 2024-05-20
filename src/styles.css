@@ -9,17 +9,17 @@ body {
 			max-height: 100%;
 		}
 
-        #slider-container {
-            position: absolute;
-            top: 10px;
-            right: 20px;
-            background: rgb(233, 239, 249);
-            padding: 10px;
-            border: 3px solid #01638a;
-            border-radius: 10px; 
-            z-index: 1000;
-        }
-        
+#slider-container {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    background: rgb(233, 239, 249);
+    padding: 10px;
+    border: 3px solid #01638a;
+    border-radius: 10px; 
+    z-index: 1000;
+}
+
 
 #year-slider {
     width: 200px;
@@ -28,4 +28,15 @@ body {
 #slider-container label {
     display: block; /* Ensure label appears on a new line */
     margin-bottom: 1px; /* Add some spacing between label and slider */
+}
+
+.leaflet-control-layers{
+    position: absolute;
+    top: 100px;
+    right: 30px;
+    background: rgb(233, 239, 249);
+    padding: 10px;
+    border: 3px solid #01638a;
+    border-radius: 10px; 
+    z-index: 1000;
 }
