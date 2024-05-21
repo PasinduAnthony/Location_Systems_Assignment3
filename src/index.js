@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const openTopoMapGroup = L.layerGroup([openTopoMap]);
 
     var map = L.map('map', {
-        layers: [osm, wmsLayer]}).setView([-36.848450, 174.762192], 10);
+        layers: [osm, wmsLayer]}).setView([-36.848450, 174.762192], 14);
 
     var baseLayers = {
         'OSM': osmlayerGroup,
@@ -51,7 +51,14 @@ document.addEventListener("DOMContentLoaded", function() {
     };
 
     // Search bar
-    L.Control.geocoder().addTo(map);
+
+        L.Control.geocoder({
+        geocoder: new L.Control.Geocoder.Nominatim({
+            geocodingQueryParams: {
+                "viewbox": "165.75,-47.31,179.36,-33.87",
+                "bounded": 1
+            }
+        })}).addTo(map);
     var layerControl = L.control.layers(baseLayers, overlays).addTo(map);
     var yearLabel = document.getElementById("slider-label-year");
     var slider = document.getElementById("year-slider");
@@ -61,6 +68,4 @@ document.addEventListener("DOMContentLoaded", function() {
         yearLabel.textContent = year;
         wmsLayer.setParams({
             CQL_FILTER: 'destock_yr=' + year
-        });
-    });
-});
+        })})});
