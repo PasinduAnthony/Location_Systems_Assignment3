@@ -1,4 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
+
+
+    // IMPORTING LAYERS FROM GEOSERVER and OSM
     const osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
@@ -47,6 +50,8 @@ document.addEventListener("DOMContentLoaded", function() {
         'Forest cover': wmsLayer,
     };
 
+    // Search bar
+    L.Control.geocoder().addTo(map);
     var layerControl = L.control.layers(baseLayers, overlays).addTo(map);
     var yearLabel = document.getElementById("slider-label-year");
     var slider = document.getElementById("year-slider");
@@ -57,7 +62,5 @@ document.addEventListener("DOMContentLoaded", function() {
         wmsLayer.setParams({
             CQL_FILTER: 'destock_yr=' + year
         });
-
-    
     });
 });
