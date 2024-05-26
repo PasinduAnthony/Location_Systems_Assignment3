@@ -56,11 +56,11 @@ body {
 
 .leaflet-control-layers{
     position: absolute;
-    top: 68px;
-    right: 10px;
+    top: 70px;
+    right : 10px;
     background: rgb(233, 239, 249);
-    padding: 20px;
-    border: 10px solid #01638a;
+    padding: 10px;
+    border : 10px solid #01638a;
     border-radius: 80px; 
     z-index: 1000;
 }
