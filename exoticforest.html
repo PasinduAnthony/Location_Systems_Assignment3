@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>NZ Native Forest</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--ADDING CSS-->
+    <link rel="stylesheet" href="./src/homestyle.css" type="text/css" />
+    <link rel="stylesheet" href="./src/search.css" type="text/css" />
+
+    <!--ADDING MAP STYPE-->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/openlayers@6.5.0/dist/ol.js"></script>
+    <style>
+        #map {
+            height: 400px;
+        }
+    </style>
+    <!--END MAP STYLE-->
+</head>
+<body>
+
+    <div class="header">
+        <h1>New Zealand Forest Cover</h1>
+    </div>
+
+    <div class="navbar">
+        <a href="home.html">Home</a>
+        <a href="nativeforest.html">Native Forests </a>
+        <a href="exoticforest.html" class="active">Exotic Forest</a>
+        <a href="nature.html">Nature</a>
+        <a class="right">
+            another link
+
+        </a>
+    </div>
+
+    <div class="row">
+        <div class="side">
+            <!-- SEARCH -->
+            <form class="example" action="/action_page.php">
+                <input type="text" placeholder="Search.." name="search">
+                <button type="submit"><i class="fa fa-search">Search</i></button>
+            </form>
+
+
+            <!-- END SEARCH -->
+
+            <h2>NZ Exotic Forest</h2>
+
+
+            <img src="./img/exoticforest.jpg" alt="Exotic Forest Image" width="400" height="345">
+            <p>
+                In the 1800s, New Zealand’s native forests seemed to provide a limitless source of timber, but by the early 1900s the supply was running out. To meet the demand for wood, vast forests of faster-growing introduced species – especially radiata pine – were planted.
+            </p>
+            <p>
+                Story by Michael Roche
+                Main image: Kāingaroa State Forest
+            </p>
+
+            <h3>More Text</h3>
+            <p>Lorem ipsum dolor sit ame.</p>
+            <div class="fakeimg" style="height:60px;">Image</div><br>
+            <div class="fakeimg" style="height:60px;">Image</div><br>
+            <div class="fakeimg" style="height:60px;">Image</div>
+        </div>
+        <div class="main">
+                <div class="fakeimg" style="height:600px;">
+                <!--INSER MAP sample only albany-->
+                 <div id="map" style="height:570px;"></div>
+                <script type="module" src="./main.js"></script>
+                <!-- END INSER MAP-->
+            </div>
+ 
+
+
+            <p>Some text..</p>
+            <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        <h2>GROUP 4 - Location System</h2>
+    </div>
+
+
+</body>
+</html>
