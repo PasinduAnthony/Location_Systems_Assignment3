@@ -58,10 +58,11 @@ document.addEventListener("DOMContentLoaded", function() {
         })}).addTo(map);
     var layerControl = L.control.layers(baseLayers, overlays).addTo(map);
     var yearLabel = document.getElementById("slider-label");
-    var slider = document.getElementById("slider");
+    var slider = document.getElementById("slider-year");
 
     slider.addEventListener("input", function() {
         var year = slider.value;
+        console.log("Slider value: ", year);
         yearLabel.textContent = year;
         wmsLayer.setParams({
             CQL_FILTER: 'destock_yr=' + year

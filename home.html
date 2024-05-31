@@ -8,11 +8,12 @@
     <!--ADDING CSS-->
     <link rel="stylesheet" href="./src/homestyle.css" type="text/css" />
     <link rel="stylesheet" href="./src/search.css" type="text/css" />
-
-    <!--ADDING MAP STYPE-->
+    <link rel="stylesheet" href="./src/styles.css" type="text/css" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/openlayers@6.5.0/dist/ol.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+    <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
     <style>
         #map {
             height: 400px;
@@ -34,15 +35,14 @@
     </div>
     <div class="row">
         <div class="side">
-            <!-- SEARCH -->
             <form class="example">
                 <input type="text" placeholder="Search.." name="search">
                 <button type="submit"><i class="fa fa-search">Search</i></button>
             </form>
             <h2>View New Zealand Forest Cover</h2>
             <div class="slidecontainer">
-                <p>Year Selected: <span id="slider-label"></span></p>
-                <input type="range" min="2014" max="2022" value="2022" class="slider" id="slider">
+                <p>Year Selected: <span id="slider-label">2022</span></p>
+                <input type="range" min="2014" max="2022" value="2022" class="slider" id="slider-year">
             </div>
             <script>
 

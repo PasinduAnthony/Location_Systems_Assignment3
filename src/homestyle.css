@@ -36,7 +36,6 @@ body {
         height: 35px;
         background: #29a329;
         cursor: grabbing;
-       
     }
 
     .slider::-moz-range-thumb {
