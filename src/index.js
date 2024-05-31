@@ -47,8 +47,6 @@ document.addEventListener("DOMContentLoaded", function() {
         'Native forest' : nativeLayer,
         'Forest cover': wmsLayer,
     };
-
-    // Search bar
         L.Control.geocoder({
         geocoder: new L.Control.Geocoder.Nominatim({
             geocodingQueryParams: {
@@ -57,8 +55,10 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         })}).addTo(map);
     var layerControl = L.control.layers(baseLayers, overlays).addTo(map);
+
     var yearLabel = document.getElementById("slider-label");
     var slider = document.getElementById("slider-year");
+
 
     slider.addEventListener("input", function() {
         var year = slider.value;
@@ -67,3 +67,4 @@ document.addEventListener("DOMContentLoaded", function() {
         wmsLayer.setParams({
             CQL_FILTER: 'destock_yr=' + year
         })})});
+
