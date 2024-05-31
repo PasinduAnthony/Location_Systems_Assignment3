@@ -31,9 +31,7 @@
         <a href="nativeforest.html">Native Forests </a>
         <a href="exoticforest.html">Exotic Forest</a>
         <a href="nature.html">Nature</a>
-
     </div>
-
     <div class="row">
         <div class="side">
             <!-- SEARCH -->
@@ -41,36 +39,17 @@
                 <input type="text" placeholder="Search.." name="search">
                 <button type="submit"><i class="fa fa-search">Search</i></button>
             </form>
-
-
-            <!-- END SEARCH -->
-
             <h2>View New Zealand Forest Cover</h2>
-
-            <!--Slider-->
             <div class="slidecontainer">
-                <p>Year Selected: <span id="demo"></span></p>
-                <input type="range" min="2014" max="2024" value="50" class="slider" id="myRange">
-
+                <p>Year Selected: <span id="slider-label"></span></p>
+                <input type="range" min="2014" max="2022" value="2022" class="slider" id="slider">
             </div>
-
-
             <script>
-var slider = document.getElementById("myRange");
-var output = document.getElementById("demo");
-output.innerHTML = slider.value;
 
-slider.oninput = function() {
-  output.innerHTML = this.value;
-}
             </script>
-
-            <!--End of Slider-->
-
             <h5>Forest Information:</h5>
             <div class="fakeimg" style="height:200px;">Image</div>
             <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
-
             <h3>More Text</h3>
             <p>Lorem ipsum dolor sit ame.</p>
             <div class="fakeimg" style="height:60px;">Image</div><br>
@@ -79,59 +58,15 @@ slider.oninput = function() {
         </div>
         <div class="main">
             <div class="fakeimg" style="height:600px;">
-       
- 
-  <!--INSER MAP sample only albany
-    <div id="map" style="height:570px;"></div>
-    <script type="module" src="./main.js"></script>-->
-
                 <div id='map' style="height:570px;" ></div>
-
-                <script type="text/javascript">
-const map = L.map('map').setView([-36.7282, 174.7097], 16);
-
-
-var basemaps = {
-    AlbanyPoly: L.tileLayer.wms('http://localhost:8090/geoserver/cite/wms', {
-        layers: 'albanypolygon'
-    }),
-
-    Places: L.tileLayer.wms('http://ows.mundialis.de/services/service?', {
-        layers: 'OSM-Overlay-WMS'
-    }),
-
-    'AlbanyPoly, then places': L.tileLayer.wms('http://ows.mundialis.de/services/service?', {
-        layers: 'TOPO-WMS,OSM-Overlay-WMS'
-    }),
-
-    'AlbanyLine': L.tileLayer.wms('http://localhost:8090/geoserver/cite/wms', {
-        layers: 'albanyline__line'
-    })
-};
-
-L.control.layers(basemaps).addTo(map);
-
-basemaps.AlbanyPoly.addTo(map);
-
-
-                </script>
-
- <!-- END INSER MAP-->
- 
             </div>
- 
-
-
             <p>Some text..</p>
             <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
         </div>
-
     </div>
-
     <div class="footer">
         <h2>GROUP 4 - Location System</h2>
     </div>
-
-
+    <script type="module" src="src/index.js"></script>
 </body>
 </html>
