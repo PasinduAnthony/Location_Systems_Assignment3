@@ -49,7 +49,6 @@
             <h2>NZ Native Forest</h2>
 
             <img src="./img/native-forest.jpg" alt="Exotic Forest Image" width="400" height="345">
-           
             <p>           Wood from native trees helped build New Zealand. The evidence is everywhere – from fence posts and railway sleepers to older houses and public buildings. These are relics of a time when people saw native forests as a limitless resource to be used. Today, many want to preserve them for their beauty and ecological importance.
             <p>
                 Story by Nancy Swarbrick
@@ -66,22 +65,7 @@
             <div class="fakeimg" style="height:600px;">
                 <!--INSER MAP Native Forest-->
                 <div id="map" style="width: 950px; height: 570px;"></div>
-                <script>
-		const map = L.map('map').setView([-36.7282, 174.7097], 10);
-
-		const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-			maxZoom: 19,
-			attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-		}).addTo(map);
-
-        /* MARKER */
-		const marker = L.marker([-36.7282, 174.7097]).addTo(map)
-			.bindPopup('<b>Hello world!</b><br />I am here!').openPopup();
-                </script>
- 
-                <!-- END INSER MAP-->
-
-
+                <script type="module" src="src/index.js"></script>
             </div>
 
 
