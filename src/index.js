@@ -1,6 +1,4 @@
 document.addEventListener("DOMContentLoaded", function() {
-
-
     // IMPORTING LAYERS FROM GEOSERVER and OSM
     const osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
@@ -49,9 +47,6 @@ document.addEventListener("DOMContentLoaded", function() {
         'Native forest' : nativeLayer,
         'Forest cover': wmsLayer,
     };
-
-    // Search bar
-
         L.Control.geocoder({
         geocoder: new L.Control.Geocoder.Nominatim({
             geocodingQueryParams: {
@@ -60,12 +55,16 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         })}).addTo(map);
     var layerControl = L.control.layers(baseLayers, overlays).addTo(map);
-    var yearLabel = document.getElementById("slider-label-year");
-    var slider = document.getElementById("year-slider");
+
+    var yearLabel = document.getElementById("slider-label");
+    var slider = document.getElementById("slider-year");
+
 
     slider.addEventListener("input", function() {
         var year = slider.value;
+        console.log("Slider value: ", year);
         yearLabel.textContent = year;
         wmsLayer.setParams({
             CQL_FILTER: 'destock_yr=' + year
         })})});
+
