@@ -6,20 +6,20 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     var wmsLayer = L.tileLayer.wms('http://localhost:8080/geoserver/webmap/wms', {
-        layers: 'webmap:Forest_clearing_NZGD200_NZGTM',
+        layers: 'Group4:lucas-nz-forest-clearing-2008-2022-v022',
         format: 'image/png',
         transparent: true,
         CQL_FILTER: 'destock_yr=2021',
     });
 
     var exoticLayer = L.tileLayer.wms('http://localhost:8080/geoserver/webmap/wms', {
-        layers: 'webmap:nz-exotic-polygons-topo-150k',
+        layers: 'Group4:nz-exotic-polygons-topo-150k',
         format: 'image/png',
         transparent: true,
     });
 
     var nativeLayer = L.tileLayer.wms('http://localhost:8080/geoserver/webmap/wms', {
-        layers: 'webmap:nz-native-polygons-topo-150k',
+        layers: 'Group4:nz-native-polygons-topo-150k',
         format: 'image/png',
         transparent: true,
     });
