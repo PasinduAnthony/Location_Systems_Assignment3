@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>New Zealand Forest Cover</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--ADDING CSS-->
+    <link rel="stylesheet" href="./src/homestyle.css" type="text/css" />
+    <link rel="stylesheet" href="./src/search.css" type="text/css" />
+
+    <!--SEARCH FUNCTION-->
+    <script src="customSearchFunction.js"></script>
+
+    <!--ADDING MAP STYPE-->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/openlayers@6.5.0/dist/ol.js"></script>
+    <style>
+        #map {
+            height: 400px;
+        }
+    </style>
+    <!--END MAP STYLE-->
+</head>
+<body>
+
+    <div class="header">
+        <h1>New Zealand Forest CoverLLC</h1>
+    </div>
+    <div class="navbar">
+        <a href="home.html" class="active">Home</a>
+        <a href="nativeforest.html">Native Forests </a>
+        <a href="exoticforest.html">Exotic Forest</a>
+        <a href="mangrove.html">Mangrove </a>
+        <a href="gallery.html">Gallery</a>
+        <a href="nature.html">Nature</a>
+    </div>
+    <div class="row">
+        <div class="side">
+            <!-- SEARCH -->
+            <form class="example">
+                <input type="text" placeholder="Search.." id="searchInput" name="search">
+                <button type="submit" onclick="search()"><i class="fa fa-search">Search</i></button>
+            </form>
+            <!-- END SEARCH -->
+            <h2>View New Zealand Forest Cover</h2>
+            <!--Slider-->
+            <div class="slidecontainer">
+                <p>Year Selected: <span id="demo"></span></p>
+                <input type="range" min="2014" max="2024" value="50" class="slider" id="myRange">
+            </div>
+            <script>
+                var slider = document.getElementById("myRange");
+                var output = document.getElementById("demo");
+                output.innerHTML = slider.value;
+
+                slider.oninput = function () {
+                    output.innerHTML = this.value;
+                }
+            </script>
+
+            <!--End of Slider-->
+
+            <br />
+            <img src="img/NZ_FOREST.jpg" width="400" height="250" />
+
+            <h2>Forest Information:</h2>
+            <p>
+                <a href="https://worldrainforests.com/deforestation/2000/New_Zealand.htm
+" target="_blank">New Zealand Forest Information and Data </a>
+            </p>
+
+            <p>
+                <a href="https://www.mpi.govt.nz/forestry/new-zealand-forests-forest-industry/about-new-zealands-forests#history-nz-forestry" target="_blank">The history of New Zealand's Forests </a>
+            </p>
+
+            <p>
+                <a href="https://teara.govt.nz/en/logging-native-forests" target="_blank">History of Logging- Native Forests</a>
+            </p>
+
+            <p>
+                <a href="https://teara.govt.nz/en/exotic-forestry" target="_blank">
+                    History of Exotic Forestry
+                </a>
+            </p>
+
+
+            <h4>2016 Land Use Classification</h4>
+            <p>
+                <a href="https://www.mpi.govt.nz/dmsdocument/36633-forest-map-TUR2.pdf" target="_blank"><img src="img/2016_land_use.png" width="200" height="300" /></a>
+            </p>
+            <!-- COMMENTING frame<div class="fakeimg" style="height:60px;">Image</div>-->
+            <br>
+
+            <!-- 2nd column where you insert the map-->
+        </div>
+        <div class="main">
+            <div class="fakeimg" style="height:600px;">
+                <div style="height:600px;">
+
+                    <div id='map' style="height:570px;">
+
+                        <script type="text/javascript">
+                            const map = L.map('map').setView([-36.7282, 174.7097], 16);
+
+
+                            var basemaps = {
+                                AlbanyPoly: L.tileLayer.wms('http://localhost:8090/geoserver/cite/wms', {
+                                    layers: 'albanypolygon'
+                                }),
+
+                                Places: L.tileLayer.wms('http://ows.mundialis.de/services/service?', {
+                                    layers: 'OSM-Overlay-WMS'
+                                }),
+
+                                'AlbanyPoly, then places': L.tileLayer.wms('http://ows.mundialis.de/services/service?', {
+                                    layers: 'TOPO-WMS,OSM-Overlay-WMS'
+                                }),
+
+                                'AlbanyLine': L.tileLayer.wms('http://localhost:8090/geoserver/cite/wms', {
+                                    layers: 'albanyline__line'
+                                })
+                            };
+
+                            L.control.layers(basemaps).addTo(map);
+
+                            basemaps.AlbanyPoly.addTo(map);
+
+
+                        </script>
+                    </div>
+                    <!-- END INSER MAP-->
+
+                    <p></p>
+                    <p>Our interactive web mapping application allows you to explore the breathtaking landscapes of New Zealand's forests. New Zealand has a diverse range of forest ecosystems, from the lush green expanses of native bushland to the orderly rows of exotic plantations. Our platform not only allows you to explore the complexities of these diverse forests, but it also includes a curated photo gallery highlighting their beauty. Furthermore, it contains useful information about other land cover features in New Zealand.</p>
+
+                    <p>Please note that this website was created solely for project purposes, and that all information and data used came from open-access repositories. This simple yet robust web mapping site makes use of the skills, knowledge, and techniques learned in the course 158740 Location Systems: Spatial Databases, Tools, and Applications. Furthermore, it demonstrates the possibility of further expansion, as additional data can be incorporated in the future using the same methodologies demonstrated in the functionality of this website.</p>
+                </div>
+
+
+
+            </div>
+
+        </div>
+      </div>
+
+    <div class="footer">
+       <h2>GROUP 4 - Location System</h2>
+   </div>
+
+
+</body>
+</html>
