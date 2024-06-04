@@ -1,0 +1,181 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--ADDING MAP STYPE-->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/openlayers@6.5.0/dist/ol.js"></script>
+    <style>
+        #map {
+            height: 400px;
+        }
+    </style>
+    <!--END MAP STYLE-->
+
+    <title>NZ Mangroves</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--ADDING CSS-->
+    <link rel="stylesheet" href="./src/homestyle.css" type="text/css" />
+    <link rel="stylesheet" href="./src/popimagestyle.css" type="text/css" />
+    <link rel="stylesheet" href="./src/search.css" type="text/css" />
+    <link rel="stylesheet" href="./src/collapse.css" type="text/css" />
+
+</head>
+<body>
+
+    <div class="header">
+        <h1>New Zealand Forest Cover Test</h1>
+    </div>
+
+    <div class="navbar">
+        <a href="home.html">Home</a>
+        <a href="nativeforest.html">Native Forests </a>
+        <a href="exoticforest.html">Exotic Forest</a>
+        <a href="mangrove.html" class="active">Mangrove </a>
+        <a href="gallery.html">Gallery</a>
+        <a href="nature.html">Nature</a>
+    </div>
+
+    <div class="row">
+        <div class="side">
+            <!-- SEARCH -->
+            <form class="example" action="/action_page.php">
+                <input type="text" placeholder="Search.." name="search">
+                <button type="submit"><i class="fa fa-search">Search</i></button>
+            </form>
+
+
+            <!-- END SEARCH -->
+
+            <h2>Mangroves</h2>
+
+            <img src="./img/mangrove_nz.jpg" alt="Exotic Forest Image" width="400" height="345">
+
+            <p>
+                Mangroves are woody trees or shrubs that grow in shallow intertidal
+                margins of sheltered coastal and estuarine environments. In New
+                Zealand there is only one mangrove species (Avicennia marina
+                subspecies australasica, also known as Manawa). It is a native species
+                that grows in estuaries in the northern part of the North Island. The
+                limits of its range occur at Kawhia Harbour on the west coast and Ohiwa
+                Harbour on the east coast. Although New Zealand mangroves can
+                tolerate mild frosts, their distribution is thought to be mainly limited by
+                cold temperatures. In Waikato estuaries mature mangroves are typically
+                2-4 metres tall.
+            <p>
+
+            </p></p>
+
+            <h3>Know More About Mangroves</h3>
+
+            <!--Collapse-->
+            <button type="button" class="collapsible">What Mangrove Need?</button>
+            <div class="content">
+                <p>
+                    Mangroves need to grow in quiet waters such as inside harbours and estuaries, because exposed areas would either uproot them or carry away the silt in which they would take root.
+                </p>
+                <p>
+                    They can tolerate being completely submerged in seawater but need to be uncovered for at least half of each tidal period so that the trees can absorb oxygen.
+                </p>
+                <p>
+                    Mangroves hate frost, which is why they like the warm, Northland climate so much. The warmer the climate, the bigger they grow.
+                </p>
+                <p><a href="img/mangrove_img.png" target="_blank"><img src="img/mangrove_img.png" width="350" height="250" /></a></p>
+            </div>
+
+            <script>
+                var coll = document.getElementsByClassName("collapsible");
+                var i;
+
+                for (i = 0; i < coll.length; i++) {
+                    coll[i].addEventListener("click", function () {
+                        this.classList.toggle("active");
+                        var content = this.nextElementSibling;
+                        if (content.style.display === "block") {
+                            content.style.display = "none";
+                        } else {
+                            content.style.display = "block";
+                        }
+                    });
+                }
+            </script>
+            <!-- END Collapse-->
+
+        </div>
+        <div class="main">
+            <div class="fakeimg" style="height:600px;">
+                <!--INSER MAP Native Forest-->
+                <div id="map" style="width: 950px; height: 570px;"></div>
+                <script>
+                    const map = L.map('map').setView([-36.7282, 174.7097], 10);
+
+                    const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                        maxZoom: 19,
+                        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+                    }).addTo(map);
+
+                    /* MARKER */
+                    const marker = L.marker([-36.7282, 174.7097]).addTo(map)
+                        .bindPopup('<b>Hello world!</b><br />I am here!').openPopup();
+                </script>
+
+                <!-- END INSER MAP-->
+
+
+            </div>
+
+
+
+            <p>
+                The mangrove trees of New Zealand only grow in the top half of the North Island of New Zealand. On the east coast they extend naturally as far south as Ohiwa Harbour in the Bay of Plenty, and on the west coast Raglan Harbour is generally regarded as their southern limit. Sometimes they are found in Aotea and Kawhia harbours a little further south.
+            </p>
+            <p>
+                Mangroves mostly grow in warmer climates, reaching their greatest size and diversity in the tropics.
+            </p>
+            <p>
+                There are 50 species in South-East Asia, with more than 30 in northern parts of Australia. However, in the southern parts of Australia and the northern part of New Zealand, where the climate is cooler, only one species of mangrove exists - although they have different names. In Australia it is called Avicennia marina while in New Zealand it is called Avicennia resinifera.
+            </p>
+            <p>
+                The word "mangrove'' refers to all types of trees that have adapted to living in the sea. Worldwide there are 23 genera from eight different families that have species described as mangroves.
+            </p>
+            <p>
+                <h2>Whould like to know more about Mangrove?</h2>
+                <a href="https://www.nrc.govt.nz/for-schools/school-information-packs/mangroves/#:~:text=The%20mangrove%20trees%20of%20New,North%20Island%20of%20New%20Zealand." target="_blank">Click Here!</a>
+            </p>
+                <script>
+                    // Get the modal
+                    var modal = document.getElementById("myModal");
+
+                    // Get the image and insert it inside the modal - use its "alt" text as a caption
+                    var img = document.getElementById("myImg");
+                    var modalImg = document.getElementById("img01");
+                    var captionText = document.getElementById("caption");
+                    img.onclick = function () {
+                        modal.style.display = "block";
+                        modalImg.src = this.src;
+                        captionText.innerHTML = this.alt;
+                    }
+
+                    // Get the <span> element that closes the modal
+                    var span = document.getElementsByClassName("close")[0];
+
+                    // When the user clicks on <span> (x), close the modal
+                    span.onclick = function () {
+                        modal.style.display = "none";
+                    }
+                </script>
+                <!-- END SIMPLE IMAGE POP Guide to planting-->
+            </p>
+
+        </div>
+    </div>
+
+    <div class="footer">
+        <h2>GROUP 4 - Location System</h2>
+    </div>
+
+
+</body>
+</html>
