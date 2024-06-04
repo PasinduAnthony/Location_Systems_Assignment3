@@ -5,20 +5,20 @@ document.addEventListener("DOMContentLoaded", function() {
         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     });
 
-    var wmsLayer = L.tileLayer.wms('http://localhost:8080/geoserver/webmap/wms', {
+    var wmsLayer = L.tileLayer.wms('http://localhost:8080/geoserver/Group4/wms', {
         layers: 'Group4:lucas-nz-forest-clearing-2008-2022-v022',
         format: 'image/png',
         transparent: true,
         CQL_FILTER: 'destock_yr=2018',
     });
 
-    var exoticLayer = L.tileLayer.wms('http://localhost:8080/geoserver/webmap/wms', {
+    var exoticLayer = L.tileLayer.wms('http://localhost:8080/geoserver/Group4/wms', {
         layers: 'Group4:nz-exotic-polygons-topo-150k',
         format: 'image/png',
         transparent: true,
     });
 
-    var nativeLayer = L.tileLayer.wms('http://localhost:8080/geoserver/webmap/wms', {
+    var nativeLayer = L.tileLayer.wms('http://localhost:8080/geoserver/Group4/wms', {
         layers: 'Group4:nz-native-polygons-topo-150k',
         format: 'image/png',
         transparent: true,
