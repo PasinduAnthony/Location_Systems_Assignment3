@@ -32,6 +32,8 @@
         <a href="home.html">Home</a>
         <a href="nativeforest.html" class="active">Native Forests </a>
         <a href="exoticforest.html">Exotic Forest</a>
+        <a href="mangrove.html">Mangrove </a>
+        <a href="gallery.html">Gallery</a>
         <a href="nature.html">Nature</a>
     </div>
 
@@ -46,30 +48,41 @@
 
             <!-- END SEARCH -->
 
-            <h2>NZ Native Forest</h2>
+            <h2>Native Forest</h2>
 
             <img src="./img/native-forest.jpg" alt="Exotic Forest Image" width="400" height="345">
-            <p>           Wood from native trees helped build New Zealand. The evidence is everywhere – from fence posts and railway sleepers to older houses and public buildings. These are relics of a time when people saw native forests as a limitless resource to be used. Today, many want to preserve them for their beauty and ecological importance.
-            <p>
-                Story by Nancy Swarbrick
-                Main image: Kauri felling, painted by John Philemon Backhouse, ca 1880
-            </p></p>
 
-            <h3>More Text</h3>
-            <p>Lorem ipsum dolor sit ame.</p>
-            <div class="fakeimg" style="height:60px;">Image</div><br>
-            <div class="fakeimg" style="height:60px;">Image</div><br>
-            <div class="fakeimg" style="height:60px;">Image</div>
+            <p>
+                Native forests and shrublands cover approximately 9 million hectares of land in New Zealand, roughly 33% of total land area. This has reduced from more than 80% of total land area before the arrival of humans. Much of what remains has been heavily modified and is not representative of former diversity.
+            </p>
+            <p>
+                With over 5 million of the remaining 6.5 million hectares of native forest existing on protected conservation land, we could be forgiven for being complacent about the conservation of our forests. However, most of this protected forest is located in upland areas.
+            </p>
+            <p>
+                New Zealand’s lowland forests, particularly coastal/duneland and river margin/wetland forests, are under-represented in legally protected land.
+            </p>
+            <a href="https://www.nfrt.org.nz/the-facts/" target="_blank"> Know more about Native Forest</a>
         </div>
         <div class="main">
             <div class="fakeimg" style="height:600px;">
                 <!--INSER MAP Native Forest-->
                 <div id="map" style="width: 950px; height: 570px;"></div>
-                <script type="module" src="src/index.js"></script>
+                <script>
+		const map = L.map('map').setView([-36.7282, 174.7097], 10);
+
+		const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+			maxZoom: 19,
+			attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+		}).addTo(map);
+        /* MARKER */
+		const marker = L.marker([-36.7282, 174.7097]).addTo(map)
+			.bindPopup('<b>Hello world!</b><br />I am here!').openPopup();
+                </script>
+ 
+                <!-- END INSER MAP-->
+
+
             </div>
-
-
-
             <p>Gardening Tips For Native Trees</p>
             <p>
                 <ul style="list-style-type:square">
@@ -82,29 +95,6 @@
                     <li> Newly planted trees will require watering during dry periods for the first few years.</li>
                 </ul>
 
-                <script>
-// Get the modal
-var modal = document.getElementById("myModal");
-
-// Get the image and insert it inside the modal - use its "alt" text as a caption
-var img = document.getElementById("myImg");
-var modalImg = document.getElementById("img01");
-var captionText = document.getElementById("caption");
-img.onclick = function(){
-  modal.style.display = "block";
-  modalImg.src = this.src;
-  captionText.innerHTML = this.alt;
-}
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
-}
-                </script>
-                <!-- END SIMPLE IMAGE POP Guide to planting-->
             </p>
  
         </div>

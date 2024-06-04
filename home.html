@@ -8,10 +8,17 @@
     <!--ADDING CSS-->
     <link rel="stylesheet" href="./src/homestyle.css" type="text/css" />
     <link rel="stylesheet" href="./src/search.css" type="text/css" />
+
+    <!--SEARCH FUNCTION-->
+    <script src="customSearchFunction.js"></script>
+
+    <!--ADDING MAP STYPE-->
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/openlayers@6.5.0/dist/ol.js"></script>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <!-- Leaflet Geocoder JavaScript -->
     <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
     <style>
         #map {
@@ -25,47 +32,67 @@
     <div class="header">
         <h1>New Zealand Forest Cover</h1>
     </div>
-
     <div class="navbar">
         <a href="home.html" class="active">Home</a>
         <a href="nativeforest.html">Native Forests </a>
         <a href="exoticforest.html">Exotic Forest</a>
+        <a href="mangrove.html">Mangrove </a>
+        <a href="gallery.html">Gallery</a>
         <a href="nature.html">Nature</a>
     </div>
     <div class="row">
         <div class="side">
-            <form class="example">
-                <input type="text" placeholder="Search.." name="search">
-                <button type="submit"><i class="fa fa-search">Search</i></button>
-            </form>
-            <h2>View New Zealand Forest Cover</h2>
-            <div class="slidecontainer">
-                <p>Year Selected: <span id="slider-label">2022</span></p>
-                <input type="range" min="2014" max="2022" value="2022" class="slider" id="slider-year">
-            </div>
-            <script>
 
-            </script>
-            <h5>Forest Information:</h5>
-            <div class="fakeimg" style="height:200px;">Image</div>
-            <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
-            <h3>More Text</h3>
-            <p>Lorem ipsum dolor sit ame.</p>
-            <div class="fakeimg" style="height:60px;">Image</div><br>
-            <div class="fakeimg" style="height:60px;">Image</div><br>
-            <div class="fakeimg" style="height:60px;">Image</div>
+            <form class="example">
+                <input type="text" placeholder="Search.." id="searchInput" name="search">
+                <button type="submit" onclick="search()"><i class="fa fa-search">Search</i></button>
+            </form>
+
+            <h2>View New Zealand Forest Cover</h2>
+
+            <div class="slidecontainer">
+                <p>Year Selected: <span id="slider-label">2018</span></p>
+                <input type="range" min="2012" max="2022" value= "2018" class="slider" id="slider-year">
+            </div>
+      <br />
+            <img src="img/NZ_FOREST.jpg" width="400" height="250" alt="forest New Zealand" />
+
+            <h2>Forest Information:</h2>
+            <p>
+                <a href="https://worldrainforests.com/deforestation/2000/New_Zealand.htm" target="_blank">New Zealand Forest Information and Data </a>
+            </p>
+            <p>
+                <a href="https://www.mpi.govt.nz/forestry/new-zealand-forests-forest-industry/about-new-zealands-forests#history-nz-forestry" target="_blank">The history of New Zealand's Forests </a>
+            </p>
+            <p>
+                <a href="https://teara.govt.nz/en/logging-native-forests" target="_blank">History of Logging- Native Forests</a>
+            </p>
+            <p>
+                <a href="https://teara.govt.nz/en/exotic-forestry" target="_blank">
+                    History of Exotic Forestry
+                </a>
+            </p>
+            <h4>2016 Land Use Classification</h4>
+            <p>
+                <a href="https://www.mpi.govt.nz/dmsdocument/36633-forest-map-TUR2.pdf" target="_blank"><img src="img/2016_land_use.png" width="200" height="300" /></a>
+            </p>
         </div>
         <div class="main">
             <div class="fakeimg" style="height:600px;">
-                <div id='map' style="height:570px;" ></div>
+                <div style="height:600px;">
+
+                    <div id='map' style="height:570px;">
+                    </div>
+                    <p></p>
+                    <p>Our interactive web mapping application allows you to explore the breathtaking landscapes of New Zealand's forests. New Zealand has a diverse range of forest ecosystems, from the lush green expanses of native bushland to the orderly rows of exotic plantations. Our platform not only allows you to explore the complexities of these diverse forests, but it also includes a curated photo gallery highlighting their beauty. Furthermore, it contains useful information about other land cover features in New Zealand.</p>
+                    <p>Please note that this website was created solely for project purposes, and that all information and data used came from open-access repositories. This simple yet robust web mapping site makes use of the skills, knowledge, and techniques learned in the course 158740 Location Systems: Spatial Databases, Tools, and Applications. Furthermore, it demonstrates the possibility of further expansion, as additional data can be incorporated in the future using the same methodologies demonstrated in the functionality of this website.</p>
+                </div>
             </div>
-            <p>Some text..</p>
-            <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
         </div>
-    </div>
+      </div>
     <div class="footer">
-        <h2>GROUP 4 - Location System</h2>
-    </div>
-    <script type="module" src="src/index.js"></script>
+       <h2>GROUP 4 - Location System</h2>
+   </div>
+   <script src="src/index.js"></script>
 </body>
 </html>

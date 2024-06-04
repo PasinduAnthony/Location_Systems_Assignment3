@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function() {
         layers: 'Group4:lucas-nz-forest-clearing-2008-2022-v022',
         format: 'image/png',
         transparent: true,
-        CQL_FILTER: 'destock_yr=2021',
+        CQL_FILTER: 'destock_yr=2018',
     });
 
     var exoticLayer = L.tileLayer.wms('http://localhost:8080/geoserver/webmap/wms', {
@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const openTopoMapGroup = L.layerGroup([openTopoMap]);
 
     var map = L.map('map', {
-        layers: [osm, wmsLayer]}).setView([-36.848450, 174.762192], 14);
+        layers: [osm, wmsLayer]}).setView([-36.848450, 174.762192], 10);
 
     var baseLayers = {
         'OSM': osmlayerGroup,
@@ -47,13 +47,6 @@ document.addEventListener("DOMContentLoaded", function() {
         'Native forest' : nativeLayer,
         'Forest cover': wmsLayer,
     };
-        L.Control.geocoder({
-        geocoder: new L.Control.Geocoder.Nominatim({
-            geocodingQueryParams: {
-                "viewbox": "165.75,-47.31,179.36,-33.87",
-                "bounded": 1
-            }
-        })}).addTo(map);
     var layerControl = L.control.layers(baseLayers, overlays).addTo(map);
 
     var yearLabel = document.getElementById("slider-label");
