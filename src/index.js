@@ -165,6 +165,27 @@ document.addEventListener("DOMContentLoaded", function () {
     })
 });
 
+$.ajax('http://localhost:8080/geoserver/wfs',{
+  type: 'GET',
+  data: {
+    service: 'WFS',
+    version: '1.1.0',
+    request: 'GetFeature',
+    typename: 'Group4:lucas-nz-forest-clearing-2008-2022-v022',
+    srsname: 'EPSG:2193',
+    outputFormat: 'text/javascript',
+    },
+  dataType: 'jsonp',
+  jsonpCallback:'callback:handleJson',
+  jsonp:'format_options'
+ });
+
+// the ajax callback function
+function handleJson(data) {
+    selectedArea = L.geoJson(data).addTo(map);
+  map.fitBounds(selectedArea.getBounds());
+}
+
 // Function to fetch the IP address
 function fetchIP() {
     fetch('https://api.ipify.org?format=json')

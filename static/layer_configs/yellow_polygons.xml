@@ -17,7 +17,7 @@
         <Rule>
           <PolygonSymbolizer>
             <Fill>
-              <CssParameter name="fill">#dbfc03</CssParameter> <!-- Green color -->
+              <CssParameter name="fill">#dbfc03</CssParameter> <!-- Yellow color -->
               <CssParameter name="fill-opacity">0.5</CssParameter> <!-- Opacity -->
             </Fill>
             <Stroke/>
