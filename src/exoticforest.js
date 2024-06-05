@@ -5,27 +5,8 @@ document.addEventListener("DOMContentLoaded", function () {
         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     });
 
-    var wmsLayer = L.tileLayer.wms('http://localhost:8080/geoserver/Group4/wms', {
-        layers: 'Group4:lucas-nz-forest-clearing-2008-2022-v022',
-        format: 'image/png',
-        transparent: true,
-        CQL_FILTER: 'destock_yr=2018',
-    });
-
     var exoticLayer = L.tileLayer.wms('http://localhost:8080/geoserver/Group4/wms', {
         layers: 'Group4:nz-exotic-polygons-topo-150k',
-        format: 'image/png',
-        transparent: true,
-    });
-
-    var nativeLayer = L.tileLayer.wms('http://localhost:8080/geoserver/Group4/wms', {
-        layers: 'Group4:nz-native-polygons-topo-150k',
-        format: 'image/png',
-        transparent: true,
-    });
-
-    var mangroveLayer = L.tileLayer.wms('http://localhost:8080/geoserver/Group4/wms', {
-        layers: 'Group4:nz-mangrove-polygons-topo-150k',
         format: 'image/png',
         transparent: true,
     });
@@ -42,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     var map = L.map('map', {
 
-        layers: [osm, wmsLayer]
+        layers: [osm, exoticLayer]
     }).setView([-36.848450, 174.762192], 10);
 
     var baseLayers = {
@@ -52,10 +33,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const overlays = {
         'Exotic forest': exoticLayer,
-        'Mangrove': mangroveLayer,
-        'Native forest': nativeLayer,
-        'Forest cover': wmsLayer,
-        'indigenous' : indigenous
     };
 
 
@@ -119,26 +96,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     var layerControl = L.control.layers(baseLayers, overlays).addTo(map);
 
-    var yearLabel = document.getElementById("slider-label");
-    var slider = document.getElementById("slider-year");
 
-
-    slider.addEventListener("input", function () {
-        var year = slider.value;
-        console.log("Slider value: ", year);
-        yearLabel.textContent = year;
-        if (map.hasLayer(wmsLayer)) {
-            wmsLayer.setParams({
-                CQL_FILTER: 'destock_yr=' + year
-            });
-        }
-        if (map.hasLayer(indigenous)){
-            indigenous.setParams({
-                CQL_FILTER : 'year=' + year
-            })
-        }
     })
-});
+
 
 // Function to fetch the IP address
 function fetchIP() {
