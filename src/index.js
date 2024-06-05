@@ -12,6 +12,13 @@ document.addEventListener("DOMContentLoaded", function () {
         CQL_FILTER: 'destock_yr=2018',
     });
 
+    var indigenous = L.tileLayer.wms('http://localhost:8080/geoserver/Group4/wms', {
+        layers: 'Group4:AKL_LandCover_IndigenousForest',
+        format: 'image/png',
+        transparent: true,
+        CQL_FILTER: 'year=2018',
+    });
+
     var exoticLayer = L.tileLayer.wms('http://localhost:8080/geoserver/Group4/wms', {
         layers: 'Group4:nz-exotic-polygons-topo-150k',
         format: 'image/png',
@@ -55,6 +62,7 @@ document.addEventListener("DOMContentLoaded", function () {
         'Mangrove': mangroveLayer,
         'Native forest': nativeLayer,
         'Forest cover': wmsLayer,
+        'indigenous' : indigenous
     };
 
 
@@ -126,9 +134,16 @@ document.addEventListener("DOMContentLoaded", function () {
         var year = slider.value;
         console.log("Slider value: ", year);
         yearLabel.textContent = year;
-        wmsLayer.setParams({
-            CQL_FILTER: 'destock_yr=' + year
-        })
+        if (map.hasLayer(wmsLayer)) {
+            wmsLayer.setParams({
+                CQL_FILTER: 'destock_yr=' + year
+            });
+        }
+        if (map.hasLayer(indigenous)){
+            indigenous.setParams({
+                CQL_FILTER : 'year=' + year
+            })
+        }
     })
 });
 
