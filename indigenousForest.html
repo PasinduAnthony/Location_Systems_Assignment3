@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!--ADDING MAP STYPE-->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/openlayers@6.5.0/dist/ol.js"></script>
+    <style>
+        #mapIndigenous {
+            height: 400px;
+        }
+    </style>
+    <!--END MAP STYLE-->
+
+    <title>NZ Indigenous Forest</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--ADDING CSS-->
+    <link rel="stylesheet" href="./src/homestyle.css" type="text/css" />
+    <link rel="stylesheet" href="./src/popimagestyle.css" type="text/css" />
+    <link rel="stylesheet" href="./src/search.css" type="text/css" />
+
+</head>
+
+<body>
+
+    <div class="header">
+        <h1>New Zealand Forest Cover</h1>
+    </div>
+
+    <div class="navbar">
+        <a href="home.html" class="active">Home</a>
+        <a href="nativeforest.html">Native Forests </a>
+        <a href="exoticforest.html">Exotic Forest</a>
+        <a href="mangrove.html">Mangrove </a>
+        <a href="gallery.html">Gallery</a>
+        <a href="nature.html">Nature</a>
+        <a href="indigenousForest.html">Indigenous Forest</a>
+        <a href="naturalForest.html">Natural Forest</a>
+    </div>
+
+    <div class="row">
+        <div class="side">
+            <!-- SEARCH -->
+            <form class="example" action="/action_page.php">
+                <input type="text" placeholder="Search.." name="search">
+                <button type="submit"><i class="fa fa-search">Search</i></button>
+            </form>
+
+
+            <!-- END SEARCH -->
+
+            <h2>NZ Indigenous Forest</h2>
+
+            <img src="./img/native-forest.jpg" alt="Exotic Forest Image" width="400" height="345">
+            <p> Wood from native trees helped build New Zealand. The evidence is everywhere – from fence posts and
+                railway sleepers to older houses and public buildings. These are relics of a time when people saw native
+                forests as a limitless resource to be used. Today, many want to preserve them for their beauty and
+                ecological importance.
+            <p>
+                Story by Nancy Swarbrick
+                Main image: Kauri felling, painted by John Philemon Backhouse, ca 1880
+            </p>
+            </p>
+
+            <h3>More Text</h3>
+            <p>Lorem ipsum dolor sit ame.</p>
+            <div class="fakeimg" style="height:60px;">Image</div><br>
+            <div class="fakeimg" style="height:60px;">Image</div><br>
+            <div class="fakeimg" style="height:60px;">Image</div>
+        </div>
+        <div class="main">
+            <div class="fakeimg" style="height:600px;">
+                <!--INSER MAP Native Forest-->
+                <div id="mapIndigenous" style="width: 950px; height: 570px;"></div>
+                <script type="module" src="src/index.js"></script>
+            </div>
+
+
+
+            <p>Gardening Tips For Native Trees</p>
+            <p>
+            <ul style="list-style-type:square">
+                <li>If you want to plant your own forest check out the Auckland Councils revegetation resources.</li>
+                <li>For your garden, it is important to consider the ultimate size and shape of any native tree relevant
+                    to the space available.</li>
+                <li> Native trees are best planted in autumn through early winter so their roots can establish before
+                    summer.</li>
+                <li> Plant trees into slightly raised beds of well cultivated soil.</li>
+                <li>Mulching will help preserve soil moisture during dry periods.</li>
+                <li>Staking may be necessary for some trees which appear unstable.</li>
+                <li> Newly planted trees will require watering during dry periods for the first few years.</li>
+            </ul>
+
+
+            </p>
+
+        </div>
+    </div>
+
+    <div class="footer">
+        <h2>GROUP 4 - Location System</h2>
+    </div>
+
+    <script src="src/indigenousForest.js"></script>
+</body>
+
+</html>

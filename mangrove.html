@@ -6,7 +6,7 @@
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/openlayers@6.5.0/dist/ol.js"></script>
     <style>
-        #map {
+        #mapMangrove {
             height: 400px;
         }
     </style>
@@ -26,7 +26,7 @@
 <body>
 
     <div class="header">
-        <h1>New Zealand Forest Cover Test</h1>
+        <h1>Mangrove Forest</h1>
     </div>
 
     <div class="navbar">
@@ -36,6 +36,8 @@
         <a href="mangrove.html" class="active">Mangrove </a>
         <a href="gallery.html">Gallery</a>
         <a href="nature.html">Nature</a>
+        <a href="indigenousForest.html">Indigenous Forest</a>
+        <a href="naturalForest.html">Natural Forest</a>
     </div>
 
     <div class="row">
@@ -107,22 +109,7 @@
         <div class="main">
             <div class="fakeimg" style="height:600px;">
                 <!--INSER MAP Native Forest-->
-                <div id="map" style="width: 950px; height: 570px;"></div>
-                <script>
-                    const map = L.map('map').setView([-36.7282, 174.7097], 10);
-
-                    const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                        maxZoom: 19,
-                        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-                    }).addTo(map);
-
-                    /* MARKER */
-                    const marker = L.marker([-36.7282, 174.7097]).addTo(map)
-                        .bindPopup('<b>Hello world!</b><br />I am here!').openPopup();
-                </script>
-
-                <!-- END INSER MAP-->
-
+                <div id="mapMangrove" style="width: 950px; height: 570px;"></div>
 
             </div>
 
@@ -144,29 +131,6 @@
                 <h2>Whould like to know more about Mangrove?</h2>
                 <a href="https://www.nrc.govt.nz/for-schools/school-information-packs/mangroves/#:~:text=The%20mangrove%20trees%20of%20New,North%20Island%20of%20New%20Zealand." target="_blank">Click Here!</a>
             </p>
-                <script>
-                    // Get the modal
-                    var modal = document.getElementById("myModal");
-
-                    // Get the image and insert it inside the modal - use its "alt" text as a caption
-                    var img = document.getElementById("myImg");
-                    var modalImg = document.getElementById("img01");
-                    var captionText = document.getElementById("caption");
-                    img.onclick = function () {
-                        modal.style.display = "block";
-                        modalImg.src = this.src;
-                        captionText.innerHTML = this.alt;
-                    }
-
-                    // Get the <span> element that closes the modal
-                    var span = document.getElementsByClassName("close")[0];
-
-                    // When the user clicks on <span> (x), close the modal
-                    span.onclick = function () {
-                        modal.style.display = "none";
-                    }
-                </script>
-                <!-- END SIMPLE IMAGE POP Guide to planting-->
             </p>
 
         </div>
@@ -176,6 +140,6 @@
         <h2>GROUP 4 - Location System</h2>
     </div>
 
-
+    <script src="src/mangrove.js"></script>
 </body>
 </html>

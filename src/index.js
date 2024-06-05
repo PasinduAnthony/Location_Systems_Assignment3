@@ -37,6 +37,13 @@ document.addEventListener("DOMContentLoaded", function () {
         transparent: true,
     });
 
+    var naturalForestLayer = L.tileLayer.wms('http://localhost:8080/geoserver/Group4/wms', {
+        layers: 'Group4:AKL_LandUse_NaturalForest',
+        format: 'image/png',
+        transparent: true,
+        // CQL_FILTER: 'year=2012',
+    });
+
     var openTopoMap = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
         attribution: 'Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
@@ -62,7 +69,8 @@ document.addEventListener("DOMContentLoaded", function () {
         'Mangrove': mangroveLayer,
         'Native forest': nativeLayer,
         'Forest cover': wmsLayer,
-        'indigenous' : indigenous
+        'Natural Forest': naturalForestLayer,
+        'indigenous': indigenous
     };
 
 
@@ -78,6 +86,16 @@ document.addEventListener("DOMContentLoaded", function () {
         'Most of the forest has now been returned to iwi ownership through the Treaty settlement process.<br>' +
         '<a href="https://www.nzgeo.com/stories/riverhead-an-urban-forest/" target="_blank">Riverhead Forest Link</a>'
     );
+
+    // Add marker for Waipoua Forest
+    var waipouaForestCoords = [-35.667710, 173.620190];
+    var waipouaForestMarker = L.marker(waipouaForestCoords).addTo(map);
+    waipouaForestMarker.bindPopup(
+        '<b>Waipoua Forest</b><br>' +
+        'Waipoua, and the adjoining forests of Mataraua and Waima, make up the largest remaining tract of native forest in Northland.<br>' +
+        '<a href="https://www.newzealand.com/us/waipoua-forest/#:~:text=Of%20all%20New%20Zealand\'s%20kauri,coast%2C%20just%20north%20of%20Dargaville." target="_blank">Waipoua Forest Link</a>'
+    );
+
 
     // Add marker for Woodhill Forest
     var woodhillForestCoords = [-36.7469527, 174.3863889];
@@ -139,9 +157,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 CQL_FILTER: 'destock_yr=' + year
             });
         }
-        if (map.hasLayer(indigenous)){
+        if (map.hasLayer(indigenous)) {
             indigenous.setParams({
-                CQL_FILTER : 'year=' + year
+                CQL_FILTER: 'year=' + year
             })
         }
     })
