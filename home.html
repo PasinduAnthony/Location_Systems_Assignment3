@@ -8,6 +8,8 @@
     <!--ADDING CSS-->
     <link rel="stylesheet" href="./src/homestyle.css" type="text/css" />
     <link rel="stylesheet" href="./src/search.css" type="text/css" />
+    <link rel="stylesheet" href="./src/styles.css" type="text/css" />
+
 
     <!--SEARCH FUNCTION-->
     <script src="customSearchFunction.js"></script>
@@ -34,6 +36,7 @@
 		<p id="ip">Your IP Address: </p>
         <p id="location">Your Location: </p>
     </div>
+    
     <div class="navbar">
         <a href="home.html" class="active">Home</a>
         <a href="nativeforest.html">Native Forests </a>
@@ -53,12 +56,12 @@
             </form>
 
             <h2>View New Zealand Forest Cover</h2>
-
+            <button type="button" id="All_years_state" class="button">All years</button>
             <div class="slidecontainer">
                 <p>Year Selected: <span id="slider-label">2018</span></p>
                 <input type="range" min="2012" max="2022" value= "2018" class="slider" id="slider-year">
             </div>
-      <br />
+            <br />
             <img src="img/NZ_FOREST.jpg" width="400" height="250" alt="forest New Zealand" />
 
             <h2>Forest Information:</h2>
