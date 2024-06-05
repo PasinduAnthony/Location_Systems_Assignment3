@@ -1,31 +1,65 @@
-document.addEventListener("DOMContentLoaded", function () {
-    // IMPORTING LAYERS FROM GEOSERVER and OSM 
+document.addEventListener("DOMContentLoaded", async function () {
+    // Function to get the user's IP address
+    async function getUserIP() {
+        const response = await fetch('https://api.ipify.org?format=json');
+        const data = await response.json();
+        return data.ip;
+    }
+
+    // Function to get geolocation based on IP address
+    async function getGeoLocation(ip) {
+        const response = await fetch(`https://ipapi.co/${ip}/json/`);
+        const data = await response.json();
+        return {
+            lat: data.latitude,
+            lon: data.longitude
+        };
+    }
+
+    // Get the user's location and set the map view
+    const ip = await getUserIP();
+    const location = await getGeoLocation(ip);
+
+    // IMPORTING LAYERS FROM GEOSERVER and OSM
     const osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     });
 
-    var wmsLayer = L.tileLayer.wms('http://localhost:8080/geoserver/Group4/wms', {
-        layers: 'Group4:lucas-nz-forest-clearing-2008-2022-v022',
+    var wmsLayer = L.tileLayer.wms('http://localhost:8080/geoserver/webmap/wms', {
+        layers: 'webmap:Forest_clearing_NZGD2000_NZGTM',
         format: 'image/png',
         transparent: true,
-        CQL_FILTER: 'destock_yr=2018',
+        CQL_FILTER: 'destock_yr=2021',
     });
 
-    var exoticLayer = L.tileLayer.wms('http://localhost:8080/geoserver/Group4/wms', {
-        layers: 'Group4:nz-exotic-polygons-topo-150k',
-        format: 'image/png',
-        transparent: true,
-    });
-
-    var nativeLayer = L.tileLayer.wms('http://localhost:8080/geoserver/Group4/wms', {
-        layers: 'Group4:nz-native-polygons-topo-150k',
+    var exoticLayer = L.tileLayer.wms('http://localhost:8080/geoserver/webmap/wms', {
+        layers: 'webmap:nz-exotic-polygons-topo-150k',
         format: 'image/png',
         transparent: true,
     });
 
-    var mangroveLayer = L.tileLayer.wms('http://localhost:8080/geoserver/Group4/wms', {
-        layers: 'Group4:nz-mangrove-polygons-topo-150k',
+    var nativeLayer = L.tileLayer.wms('http://localhost:8080/geoserver/webmap/wms', {
+        layers: 'webmap:nz-native-polygons-topo-150k',
+        format: 'image/png',
+        transparent: true,
+    });
+
+    var mangroveLayer = L.tileLayer.wms('http://localhost:8080/geoserver/webmap/wms', {
+        layers: 'webmap:nz-mangrove-polygons-topo-150k',
+        format: 'image/png',
+        transparent: true,
+    });
+
+    var naturalForestLayer = L.tileLayer.wms('http://localhost:8080/geoserver/webmap/wms', {
+        layers: 'webmap:AKL_LandUse_NaturalForest',
+        format: 'image/png',
+        transparent: true,
+        CQL_FILTER: 'year=2012',
+    });
+
+    var indigenousForestLayer = L.tileLayer.wms('http://localhost:8080/geoserver/webmap/wms', {
+        layers: 'webmap:AKL_Indegenous_Forest',
         format: 'image/png',
         transparent: true,
     });
@@ -36,14 +70,13 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // Creating layer groups to have several "groups" to choose from in layer selection.
-    // Reality only single layer choosing, but have not found a better solution.
     const osmlayerGroup = L.layerGroup([osm]);
     const openTopoMapGroup = L.layerGroup([openTopoMap]);
 
+    // Initialize the map
     var map = L.map('map', {
-
         layers: [osm, wmsLayer]
-    }).setView([-36.848450, 174.762192], 10);
+    }).setView([location.lat, location.lon], 14);
 
     var baseLayers = {
         'OSM': osmlayerGroup,
@@ -52,11 +85,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const overlays = {
         'Exotic forest': exoticLayer,
-        'Mangrove': mangroveLayer,
         'Native forest': nativeLayer,
+        'Mangrove': mangroveLayer,
         'Forest cover': wmsLayer,
+        'Natural Forest': naturalForestLayer,
+        'Indigenous Forest': indigenousForestLayer,
     };
-
 
     // Add marker for Riverhead Forest
     var riverheadForestCoords = [-36.7124211, 174.5737027];
@@ -116,21 +150,117 @@ document.addEventListener("DOMContentLoaded", function () {
         '<a href="https://www.kohiforest.com/" target="_blank">Kohimarama Forest Link</a>'
     );
 
+    // Search bar
+    L.Control.geocoder({
+        geocoder: new L.Control.Geocoder.Nominatim({
+            geocodingQueryParams: {
+                "viewbox": "165.75,-47.31,179.36,-33.87",
+                "bounded": 1
+            }
+        })
+    }).addTo(map);
+
     var layerControl = L.control.layers(baseLayers, overlays).addTo(map);
 
-    var yearLabel = document.getElementById("slider-label");
-    var slider = document.getElementById("slider-year");
-
-
+    var yearLabel = document.getElementById("slider-label-year");
+    var slider = document.getElementById("year-slider");
     slider.addEventListener("input", function () {
         var year = slider.value;
-        console.log("Slider value: ", year);
         yearLabel.textContent = year;
         wmsLayer.setParams({
             CQL_FILTER: 'destock_yr=' + year
-        })
-    })
+        });
+    });
+
+    var naturalForestYearLabel = document.getElementById("naturalForest-slider-label-year");
+    var naturalForestSlider = document.getElementById("naturalForest-year-slider");
+
+    // Map slider values to years
+    var yearMap = {
+        0: 2012,
+        1: 2016,
+        2: 2020
+    };
+
+    naturalForestSlider.addEventListener("input", function () {
+        var sliderValue = naturalForestSlider.value;
+        var year = yearMap[sliderValue];
+        naturalForestYearLabel.textContent = year;
+        naturalForestLayer.setParams({
+            CQL_FILTER: 'year=' + year
+        });
+    });
+
+    // Add event listener for natural forest layer click
+    map.on('click', function (e) {
+        var clickLatLng = e.latlng;
+        var url = getFeatureInfoUrl(map, naturalForestLayer, clickLatLng, {
+            'info_format': 'application/json',
+            'propertyName': 'gid,lucid,subid,year'
+        });
+
+        fetch(url)
+            .then(response => {
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    throw new Error('Error: ' + response.statusText);
+                }
+            })
+            .then(data => {
+                if (data.features && data.features.length > 0) {
+                    var properties = data.features[0].properties;
+                    L.popup()
+                        .setLatLng(clickLatLng)
+                        .setContent(
+                            `<b>Natural Forest</b><br>
+                            GID: ${properties.gid}<br>
+                            LUCID: ${properties.lucid}<br>
+                            SUBID: ${properties.subid}<br>
+                            Year: ${properties.year}`
+                        )
+                        .openOn(map);
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching feature info:', error);
+                L.popup()
+                    .setLatLng(clickLatLng)
+                    .setContent(
+                        `<b>Error fetching feature info</b><br>
+                        ${error.message}`
+                    )
+                    .openOn(map);
+            });
+    });
 });
+
+function getFeatureInfoUrl(map, layer, latlng, params) {
+    var point = map.latLngToContainerPoint(latlng, map.getZoom());
+    var size = map.getSize();
+
+    var baseParams = {
+        request: 'GetFeatureInfo',
+        service: 'WMS',
+        srs: 'EPSG:4326',
+        styles: '',
+        version: '1.1.1',
+        format: 'image/png',
+        bbox: map.getBounds().toBBoxString(),
+        height: size.y,
+        width: size.x,
+        layers: layer.wmsParams.layers,
+        query_layers: layer.wmsParams.layers,
+        info_format: 'application/json'
+    };
+
+    var extendedParams = Object.assign(baseParams, params);
+
+    extendedParams[extendedParams.version === '1.3.0' ? 'i' : 'x'] = point.x;
+    extendedParams[extendedParams.version === '1.3.0' ? 'j' : 'y'] = point.y;
+
+    return layer._url + L.Util.getParamString(extendedParams, layer._url, true);
+}
 
 // Function to fetch the IP address
 function fetchIP() {

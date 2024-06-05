@@ -138,7 +138,8 @@ html {
     }
 
 .title {
-    color: grey;
+    color: dimgray;
+    font-size: 14px;
 }
 
 .button {
