@@ -1,5 +1,6 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <!--ADDING MAP STYPE-->
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
@@ -23,6 +24,7 @@
 
 
 </head>
+
 <body>
 
     <div class="header">
@@ -30,13 +32,13 @@
     </div>
 
     <div class="navbar">
-        <a href="home.html" >Home</a>
+        <a href="home.html">Home</a>
         <a href="forestcover.html">Forest Cover</a>
         <a href="nativeforest.html">Native Forests </a>
         <a href="exoticforest.html">Exotic Forest</a>
         <a href="mangrove.html">Mangrove </a>
         <a href="indigenousForest.html">Indigenous Forest</a>
-        <a href="naturalForest.html"  class="active">Natural Forest</a>
+        <a href="naturalForest.html" class="active">Natural Forest</a>
         <a href="nature.html">Nature</a>
         <a href="gallery.html">Gallery</a>
     </div>
@@ -53,48 +55,69 @@
             <!-- END SEARCH -->
 
             <h2>NZ Natural Forest</h2>
-                        <img src="./img/Natural_DouglasFir-2.jpg" alt="Natural Forest" style="width:100%;">
-                
+            <img src="./img/Natural_DouglasFir-2.jpg" alt="Natural Forest" style="width:100%;">
 
-            <p>  Natural Forest refer to any forest that exists in its natural state, relatively undisturbed by human activities. 
-                Wood from native trees helped build New Zealand. The evidence is everywhere – from fence posts and railway sleepers to older houses and public buildings.
+
+            <p> Natural Forest refer to any forest that exists in its natural state, relatively undisturbed by human
+                activities.
+                Wood from native trees helped build New Zealand. The evidence is everywhere – from fence posts and
+                railway sleepers to older houses and public buildings.
                 These are relics of a time when people saw native forests as a limitless resource to be used.
                 Today, many want to preserve them for their beauty and ecological importance.
             <p>
-            </p></p>
+            </p>
+            </p>
 
         </div>
         <div class="main">
-            <p>The map below shows the Natural Forst cover in the  Northern Part of New Zealand</p>
             <div class="fakeimg" style="height:600px;">
-              
+                <label for="naturalForest-year-slider" style="color: white;">Select natural forest year: <span
+                        id="naturalForest-slider-label-year">2012</span></label>
+                <input type="range" id="naturalForest-year-slider" min="0" max="2" value="0">
+                <br>
+                <br>
                 <div id="mapNaturalForest" style="width: 950px; height: 570px;"></div>
-                <script type="module" src="src/index.js"></script>
+                <script type="module" src="src/naturalForest.js"></script>
             </div>
 
 
 
-            <p><h3>Example of Natural Forest</h3></p>
             <p>
-                <ul style="list-style-type:square">
-                    <li>Pinus radiata (Monterey Pine):While not indigenous to New Zealand, monterey pine grows naturally in forests and is widely planted in plantations, particularly in areas where logging or reforestation has taken place.
-                    </li>
-                    <br>
-                    <li>Eucalyptus species (Gum Trees):Numerous eucalyptus species, including Eucalyptus nitens and Eucalyptus globulus, are native to New Zealand and are typically found in plantation forests, though they are also occasionally found in natural forest environments.
-                    </li>
-                    <br>
-                    <li>Cypress (Cupressus macrocarpa): This species, also called macrocarpa, is not indigenous to New Zealand but has been widely planted there for the purpose of producing timber, controlling erosion, and creating shelterbelts. It is occasionally found in natural forest areas, particularly in arid climates.
-                    </li>
-                    <br>
-                    <li>Acacia species (Wattles): Many acacia species, such as Acacia dealbata (silver wattle) and Acacia melanoxylon (blackwood), have been brought to New Zealand and are found in both natural and plantation forests.
-                    </li>
-                    <br>
-                    <li>Douglas Fir (Pseudotsuga menziesii): In New Zealand, Douglas fir is a non-native species that has been widely planted for its timber. Sometimes, especially in places where it has been introduced for forestry purposes, it can be found in natural forest settings.
-                    </li>
-                </ul>
+                <br>
+                <br>
+            <h3>Example of Natural Forest</h3>
+            </p>
+            <p>
+            <ul style="list-style-type:square">
+                <li>Pinus radiata (Monterey Pine):While not indigenous to New Zealand, monterey pine grows naturally in
+                    forests and is widely planted in plantations, particularly in areas where logging or reforestation
+                    has taken place.
+                </li>
+                <br>
+                <li>Eucalyptus species (Gum Trees):Numerous eucalyptus species, including Eucalyptus nitens and
+                    Eucalyptus globulus, are native to New Zealand and are typically found in plantation forests, though
+                    they are also occasionally found in natural forest environments.
+                </li>
+                <br>
+                <li>Cypress (Cupressus macrocarpa): This species, also called macrocarpa, is not indigenous to New
+                    Zealand but has been widely planted there for the purpose of producing timber, controlling erosion,
+                    and creating shelterbelts. It is occasionally found in natural forest areas, particularly in arid
+                    climates.
+                </li>
+                <br>
+                <li>Acacia species (Wattles): Many acacia species, such as Acacia dealbata (silver wattle) and Acacia
+                    melanoxylon (blackwood), have been brought to New Zealand and are found in both natural and
+                    plantation forests.
+                </li>
+                <br>
+                <li>Douglas Fir (Pseudotsuga menziesii): In New Zealand, Douglas fir is a non-native species that has
+                    been widely planted for its timber. Sometimes, especially in places where it has been introduced for
+                    forestry purposes, it can be found in natural forest settings.
+                </li>
+            </ul>
 
             </p>
- 
+
         </div>
     </div>
 
@@ -102,7 +125,7 @@
         <h2>GROUP 4 - Location System</h2>
     </div>
 
-    <script src="src/naturalForest.js"></script>
 
 </body>
+
 </html>
