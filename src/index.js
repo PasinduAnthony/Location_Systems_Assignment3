@@ -147,9 +147,9 @@ document.addEventListener("DOMContentLoaded", function () {
     var yearLabel = document.getElementById("slider-label");
     var slider = document.getElementById("slider-year");
 
-
     slider.addEventListener("input", function () {
         var year = slider.value;
+        yearLabel.textContent = year;
         console.log("Slider value: ", year);
         yearLabel.textContent = year;
         if (map.hasLayer(wmsLayer)) {
@@ -161,9 +161,28 @@ document.addEventListener("DOMContentLoaded", function () {
             indigenous.setParams({
                 CQL_FILTER: 'year=' + year
             })
+            
+        }})
+
+    document.getElementById('All_years_state').addEventListener('click', function() {
+        
+        if (this.style.backgroundColor == 'green') {
+            
+            this.style.backgroundColor = 'red';
+            wmsLayer.setParams({
+                CQL_FILTER: 'destock_yr=' + slider.value
+            });
+        } else {
+            this.style.backgroundColor = 'green'; // Green
+            yearLabel = "All years"
+            wmsLayer.setParams({
+                CQL_FILTER: ''
+            });
         }
-    })
-});
+    });
+})
+
+
 
 // Function to fetch the IP address
 function fetchIP() {
