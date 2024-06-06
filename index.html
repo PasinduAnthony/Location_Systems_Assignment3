@@ -21,6 +21,8 @@
 
     <!-- Leaflet Geocoder JavaScript -->
     <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
         #map {
             height: 400px;
@@ -80,6 +82,8 @@
         <div class="main">
             <button type="button" id="All_years_state" class="button" 
             data-hover-text="If green, all years are visible">All years</button>
+            <button id="fetch-button">Fetch WFS Features</button>
+            <div id="loadingMessage" style="display: none;">Searching...</div>
             <div class="slidecontainer">
                 <p>Year Selected: <span id="slider-label">2018</span></p>
                 <input type="range" min="2012" max="2022" value= "2018" class="slider" id="slider-year">
