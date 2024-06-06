@@ -147,39 +147,44 @@ document.addEventListener("DOMContentLoaded", function () {
     var yearLabel = document.getElementById("slider-label");
     var slider = document.getElementById("slider-year");
 
-    slider.addEventListener("input", function () {
-        var year = slider.value;
-        yearLabel.textContent = year;
-        console.log("Slider value: ", year);
-        yearLabel.textContent = year;
-        if (map.hasLayer(wmsLayer)) {
-            wmsLayer.setParams({
-                CQL_FILTER: 'destock_yr=' + year
-            });
-        }
-        if (map.hasLayer(indigenous)) {
-            indigenous.setParams({
-                CQL_FILTER: 'year=' + year
-            })
-            
-        }})
+    // Define the event handler function
+function updateMap() {
+    var year = slider.value;
+    yearLabel.textContent = year;
 
-    document.getElementById('All_years_state').addEventListener('click', function() {
-        
-        if (this.style.backgroundColor == 'green') {
-            
-            this.style.backgroundColor = 'red';
-            wmsLayer.setParams({
-                CQL_FILTER: 'destock_yr=' + slider.value
-            });
-        } else {
-            this.style.backgroundColor = 'green'; // Green
-            yearLabel = "All years"
-            wmsLayer.setParams({
-                CQL_FILTER: ''
-            });
-        }
-    });
+    console.log("Slider value: ", year);
+    
+    if (document.getElementById('All_years_state').style.backgroundColor === 'green') {
+        yearLabel.textContent = "All years";
+        wmsLayer.setParams({
+            CQL_FILTER: ''
+        });
+    } else {
+        wmsLayer.setParams({
+            CQL_FILTER: 'destock_yr=' + year
+        });
+    }
+
+    if (map.hasLayer(indigenous)) {
+        indigenous.setParams({
+            CQL_FILTER: 'year=' + year
+        });
+    }
+}
+
+// Attach the event handler to the slider input event
+slider.addEventListener("input", updateMap);
+
+// Attach the event handler to the button click event
+document.getElementById('All_years_state').addEventListener('click', function() {
+    if (this.style.backgroundColor === 'green') {
+        this.style.backgroundColor = 'red';
+    } else {
+        this.style.backgroundColor = 'green';
+    }
+    updateMap(); // Call the updateMap function when the button is clicked
+});
+
 })
 
 
