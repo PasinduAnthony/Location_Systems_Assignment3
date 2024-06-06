@@ -146,6 +146,16 @@ document.addEventListener("DOMContentLoaded", function () {
         'indigenous': indigenous,
     };
 
+
+
+    L.Control.geocoder({
+    geocoder: new L.Control.Geocoder.Nominatim({
+        geocodingQueryParams: {
+            "viewbox": "165.75,-47.31,179.36,-33.87",
+            "bounded": 1
+        }
+    })}).addTo(map);
+
     var layerControl = L.control.layers(baseLayers, overlays).addTo(map);
 
     var yearLabel = document.getElementById("slider-label");
