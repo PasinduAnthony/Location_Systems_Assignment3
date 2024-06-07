@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 
-    var naturalForestLayer1 = L.tileLayer.wms('http://localhost:8080/geoserver/Group4/wms', {
+    var naturalForestLayer1 = L.tileLayer.wms('http://10.2.252.170:8080/geoserver/Group4/wms', {
         layers: 'Group4:nz-exotic-polygons-topo-150k',
         format: 'image/png',
         transparent: true,

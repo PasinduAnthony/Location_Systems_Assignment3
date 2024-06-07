@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-    var mangroveLayer1 = L.tileLayer.wms('http://localhost:8080/geoserver/Group4/wms', {
+    var mangroveLayer1 = L.tileLayer.wms('http://10.2.252.170:8080/geoserver/Group4/wms', {
         layers: 'Group4:nz-mangrove-polygons-topo-150k',
         format: 'image/png',
         transparent: true,

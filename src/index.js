@@ -5,14 +5,14 @@ document.addEventListener("DOMContentLoaded", function () {
         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     });
 
-    var wmsLayer = L.tileLayer.wms('http://localhost:8080/geoserver/Group4/wms', {
+    var wmsLayer = L.tileLayer.wms('http://10.2.252.170:8080/geoserver/Group4/wms', {
         layers: 'Group4:lucas-nz-forest-clearing-2008-2022-v022',
         format: 'image/png',
         transparent: true,
         CQL_FILTER: 'destock_yr=2018',
     });
 
-    var indigenous = L.tileLayer.wms('http://localhost:8080/geoserver/Group4/wms', {
+    var indigenous = L.tileLayer.wms('http://10.2.252.170:8080/geoserver/Group4/wms', {
         layers: 'Group4:AKL_LandCover_IndigenousForest',
         format: 'image/png',
         transparent: true,
@@ -21,25 +21,25 @@ document.addEventListener("DOMContentLoaded", function () {
 
    
 
-    var exoticLayer = L.tileLayer.wms('http://localhost:8080/geoserver/Group4/wms', {
+    var exoticLayer = L.tileLayer.wms('http://10.2.252.170:8080/geoserver/Group4/wms', {
         layers: 'Group4:nz-exotic-polygons-topo-150k',
         format: 'image/png',
         transparent: true,
     });
 
-    var nativeLayer = L.tileLayer.wms('http://localhost:8080/geoserver/Group4/wms', {
+    var nativeLayer = L.tileLayer.wms('http://10.2.252.170:8080/geoserver/Group4/wms', {
         layers: 'Group4:nz-native-polygons-topo-150k',
         format: 'image/png',
         transparent: true,
     });
 
-    var mangroveLayer = L.tileLayer.wms('http://localhost:8080/geoserver/Group4/wms', {
+    var mangroveLayer = L.tileLayer.wms('http://10.2.252.170:8080/geoserver/Group4/wms', {
         layers: 'Group4:nz-mangrove-polygons-topo-150k',
         format: 'image/png',
         transparent: true,
     });
 
-    var naturalForestLayer = L.tileLayer.wms('http://localhost:8080/geoserver/Group4/wms', {
+    var naturalForestLayer = L.tileLayer.wms('http://10.2.252.170:8080/geoserver/Group4/wms', {
         layers: 'Group4:AKL_LandUse_NaturalForest',
         format: 'image/png',
         transparent: true,
@@ -168,7 +168,7 @@ document.addEventListener("DOMContentLoaded", function () {
     
 //    Comparision view 
 
-    var wmsLayer2 = L.tileLayer.wms('http://localhost:8080/geoserver/Group4/wms', {
+    var wmsLayer2 = L.tileLayer.wms('https://158740g4.massey.ac.nz:8080/geoserver/Group4/wms', {
         layers: 'Group4:lucas-nz-forest-clearing-2008-2022-v022',
         format: 'image/png',
         transparent: true,

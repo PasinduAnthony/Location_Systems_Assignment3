@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-    var indigenousLayer1 = L.tileLayer.wms('http://localhost:8080/geoserver/Group4/wms', {
+    var indigenousLayer1 = L.tileLayer.wms('http://10.2.252.170:8080/geoserver/Group4/wms', {
         layers: 'Group4:AKL_LandCover_IndigenousForest',
         format: 'image/png',
         transparent: true,
