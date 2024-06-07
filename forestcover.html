@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="./src/search.css" type="text/css" />
 
     <!--SEARCH FUNCTION-->
-    <script src="customSearchFunction.js"></script>
+    <!-- <script src="customSearchFunction.js"></script> -->
 
     <!--ADDING MAP STYPE-->
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
@@ -33,7 +33,7 @@
     <div class="header">
         <h1>New Zealand Forest Cover</h1>
     </div>
-    <div class="navbar">
+    <div class="navbar" style="z-index: 10000;">
         <a href="index.html">Home</a>
         <a href="forestcover.html" class="active">Forest Cover</a>
         <a href="nativeforest.html">Native Forests </a>
@@ -83,6 +83,19 @@
                 <div style="height:600px;">
 
                     <div id='map' style="height:570px;">
+
+                        <div id="legend">
+                            <div class='my-legend' style="z-index: 5000;">
+                                <div class='legend-title'>Layer Colours</div>
+                                <div class='legend-scale'>
+                                    <ul class='legend-labels'>
+                                        <li><span style='background:#d6684f;'></span>Forest</li>
+                                    </ul>
+                                </div>
+                                <!-- <div class='legend-source'>Source: <a href="#link to source">Name of source</a></div> -->
+                            </div>
+                        </div>
+
                     </div>
                     <p></p>
                     <p>Our interactive web mapping application allows you to explore the breathtaking landscapes of New Zealand's forests. New Zealand has a diverse range of forest ecosystems, from the lush green expanses of native bushland to the orderly rows of exotic plantations. Our platform not only allows you to explore the complexities of these diverse forests, but it also includes a curated photo gallery highlighting their beauty. Furthermore, it contains useful information about other land cover features in New Zealand.</p>

@@ -30,7 +30,7 @@
         <h1>New Zealand Forest Cover</h1>
     </div>
 
-    <div class="navbar">
+    <div class="navbar" style="z-index: 10000;">
         <a href="index.html" >Home</a>
         <a href="forestcover.html">Forest Cover</a>
         <a href="nativeforest.html">Native Forests </a>
@@ -84,7 +84,19 @@
             <p>The map below shows the Indigenous Forst cover in the  Northern Part of New Zealand</p>
             <div class="fakeimg" style="height:600px;">
                 <!--INSER MAP Native Forest-->
-                <div id="mapIndigenous" style="width: 950px; height: 570px;"></div>
+                <div id="mapIndigenous" style="height: 570px;">
+                    <div id="legend">
+                        <div class='my-legend' style="z-index: 5000;">
+                            <div class='legend-title'>Layer Colours</div>
+                            <div class='legend-scale'>
+                                <ul class='legend-labels'>
+                                    <li><span style='background:#0099cc;'></span>Indigenous</li>
+                                </ul>
+                            </div>
+                            <!-- <div class='legend-source'>Source: <a href="#link to source">Name of source</a></div> -->
+                        </div>
+                    </div>
+                </div>
                 <script type="module" src="src/index.js"></script>
             </div>
 

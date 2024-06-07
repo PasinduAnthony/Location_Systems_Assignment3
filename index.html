@@ -22,6 +22,7 @@
     <!-- Leaflet Geocoder JavaScript -->
     <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
     <script src="./src/search.js" defer></script>
+    <script src="./src/lib/leaflet-side-by-side.min.js"></script>
     <style>
         #map {
             height: 400px;
@@ -36,7 +37,7 @@
 		<p id="ip">Your IP Address: </p>
         <p id="location">Your Location: </p>
     </div>
-    <div class="navbar">
+    <div class="navbar" style="z-index: 10000;">
         <a href="index.html" class="active">Home</a>
         <a href="forestcover.html">Forest Cover</a>
         <a href="nativeforest.html">Native Forests </a>
@@ -46,6 +47,7 @@
         <a href="naturalForest.html">Natural Forest</a>
         <a href="nature.html">Nature</a>
         <a href="gallery.html">Gallery</a>
+        <a href="help.html" style="position: absolute; right: 0;">Help</a>
     </div>
     <div class="row">
         <div class="side">
@@ -76,8 +78,6 @@
             </p>
         </div>
         <div class="main">
-            <button type="button" id="All_years_state" class="button" 
-            data-hover-text="If green, all years are visible">All years</button>
             <div class="slidecontainer">
                 <p>Year Selected: <span id="slider-label">2018</span></p>
                 <input type="range" min="2012" max="2022" value= "2018" class="slider" id="slider-year">
@@ -86,6 +86,32 @@
                 <div style="height:600px;">
 
                     <div id='map' style="height:570px;">
+                        <div id="yearOnMap" style="left: 0; margin-left: 10px; bottom: 0;">
+                            <p>Selected Year: <span id="selectedYear">2018</span></p>
+                        </div>
+
+
+                        <div id="legend">
+                            <div class='my-legend' style="z-index: 5000;">
+                                <div class='legend-title'>Layer Colours</div>
+                                <div class='legend-scale'>
+                                    <ul class='legend-labels'>
+                                        <li><span style='background:#cceb5a;'></span>Exotic</li>
+                                        <li><span style='background:#0099cc;'></span>Mangrove</li>
+                                        <li><span style='background:#77f86a;'></span>Native</li>
+                                        <li><span style='background:#d6684f;'></span>Forest</li>
+                                        <li><span style='background:#99cc00;'></span>Natural</li>
+                                        <li><span style='background:#0099cc;'></span>Indigenous</li>
+                                    </ul>
+                                </div>
+                                <!-- <div class='legend-source'>Source: <a href="#link to source">Name of source</a></div> -->
+                            </div>
+                        </div>
+
+                        <div id="yearOnMap" style="right: 0; margin-right: 10px; bottom: 0;">
+                            <span id="slider-year">All Years</span>
+                        </div>
+
                     </div>
                     <p></p>
                     <p>Our interactive web mapping application allows you to explore the breathtaking landscapes of New Zealand's forests. New Zealand has a diverse range of forest ecosystems, from the lush green expanses of native bushland to the orderly rows of exotic plantations. Our platform not only allows you to explore the complexities of these diverse forests, but it also includes a curated photo gallery highlighting their beauty. Furthermore, it contains useful information about other land cover features in New Zealand.</p>

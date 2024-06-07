@@ -19,6 +19,8 @@ document.addEventListener("DOMContentLoaded", function () {
         CQL_FILTER: 'year=2018',
     });
 
+   
+
     var exoticLayer = L.tileLayer.wms('http://localhost:8080/geoserver/Group4/wms', {
         layers: 'Group4:nz-exotic-polygons-topo-150k',
         format: 'image/png',
@@ -127,7 +129,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const forest_markers = L.layerGroup([waipouaForestMarker, kohimaramaForestMarker, akatarawaForestMarker, communityForestMarker, woodhillForestCoords])
 
     var map = L.map('map', {
-
         layers: [osm, wmsLayer]
     }).setView([-36.848450, 174.762192], 10);
 
@@ -156,35 +157,51 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     })}).addTo(map);
 
+
+
     var layerControl = L.control.layers(baseLayers, overlays).addTo(map);
 
     var yearLabel = document.getElementById("slider-label");
     var slider = document.getElementById("slider-year");
+    var selectedYear = document.getElementById("selectedYear");
+
+    
+//    Comparision view 
+
+    var wmsLayer2 = L.tileLayer.wms('http://localhost:8080/geoserver/Group4/wms', {
+        layers: 'Group4:lucas-nz-forest-clearing-2008-2022-v022',
+        format: 'image/png',
+        transparent: true,
+        CQL_FILTER: ''
+    }).addTo(map);
+
+
+    
+    L.control.sideBySide(baseLayers, wmsLayer2).addTo(map);
 
     // Define the event handler function
 function updateMap() {
     var year = slider.value;
     yearLabel.textContent = year;
-
+    selectedYear.textContent = year; 
     console.log("Slider value: ", year);
+   
     
-    if (document.getElementById('All_years_state').style.backgroundColor === 'green') {
-        yearLabel.textContent = "All years";
-        wmsLayer.setParams({
-            CQL_FILTER: ''
-        });
-    } else {
-        wmsLayer.setParams({
-            CQL_FILTER: 'destock_yr=' + year
-        });
-    }
+    wmsLayer.setParams({
+        CQL_FILTER: 'destock_yr=' + year
+    });
+
 
     if (map.hasLayer(indigenous)) {
         indigenous.setParams({
             CQL_FILTER: 'year=' + year
         });
     }
+
+    console.log(year);
 }
+
+
 
 // Attach the event handler to the slider input event
 slider.addEventListener("input", updateMap);
