@@ -1,5 +1,3 @@
-/// Adding layer config for green polygons
-
 <?xml version="1.0" encoding="UTF-8"?>
 <StyledLayerDescriptor version="1.0.0"
     xsi:schemaLocation="http://www.opengis.net/sld StyledLayerDescriptor.xsd"
@@ -16,7 +14,7 @@
         <Rule>
           <PolygonSymbolizer>
             <Fill>
-              <CssParameter name="fill">#00FF00</CssParameter> <!-- Green color -->
+              <CssParameter name="fill">#dbfc03</CssParameter> <!-- Yellow color -->
               <CssParameter name="fill-opacity">0.5</CssParameter> <!-- Opacity -->
             </Fill>
             <Stroke/>
