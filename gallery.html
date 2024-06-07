@@ -8,7 +8,10 @@
     <!--ADDING CSS-->
     <link rel="stylesheet" href="./src/homestyle.css" type="text/css" />
     <link rel="stylesheet" href="./src/gallery.css" type="text/css" />
-    <script src="./src/galleryJS.js"></script> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="./src/gallery_JS.js"></script> 
+    <script type="module" src="src/gallery_JS.js"></script>
+
 </head>
 <body>
 
@@ -16,7 +19,7 @@
         <h1>New Zealand Forest Gallery</h1>
     </div>
 
-    <div class="navbar">
+    <div class="navbar" style="z-index: 10000;">
         <a href="index.html" >Home</a>
         <a href="forestcover.html">Forest Cover</a>
         <a href="nativeforest.html">Native Forests </a>
@@ -26,6 +29,7 @@
         <a href="naturalForest.html">Natural Forest</a>
         <a href="nature.html">Nature</a>
         <a href="gallery.html" class="active">Gallery</a>
+        <a href="help.html" style="position: absolute; right: 0;">Help</a>
     </div>
 
 
@@ -35,111 +39,160 @@
     <div>
         <div>
             <!--IMAGE GALLERY-->
-            <!-- Container for the image gallery -->
-            <div class="container">
-
-                <!-- Full-width images with number text -->
-                <center>
-                    <div class="mySlides">
-                        <div class="numbertext">1 / 6</div>
-                        <img src="img/Akatarawa_forest.jpg" style="width:100%">
-                    </div>
-
-                    <div class="mySlides">
-                        <div class="numbertext">2 / 6</div>
-                        <img src="img/Akatarawa_forest.jpg" style="width:100%">
-                    </div>
-
-                    <div class="mySlides">
-                        <div class="numbertext">3 / 6</div>
-                        <img src="img/Akatarawa_forest.jpg" style="width:100%">
-                    </div>
-
-                    <div class="mySlides">
-                        <div class="numbertext">4 / 6</div>
-                        <img src="img/Akatarawa_forest.jpg" style="width:100%">
-                    </div>
-
-                    <div class="mySlides">
-                        <div class="numbertext">5 / 6</div>
-                        <img src="img/Akatarawa_forest.jpg" style="width:100%">
-                    </div>
-
-                    <div class="mySlides">
-                        <div class="numbertext">6 / 6</div>
-                        <img src="img/Akatarawa_forest.jpg" style="width:100%">
-                    </div>
-
-                    <!-- Next and previous buttons -->
-                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
-
-                    <!-- Image text -->
-                    <div class="caption-container">
-                        <p id="caption"></p>
-                    </div>
-
-                    <!-- Thumbnail images -->
-                    <div class="row">
-                        <div class="column">
-                            <img class="demo cursor" src="img/Akatarawa_forest.jpg" style="width:100%" onclick="currentSlide(1)" alt="The Woods">
+            <div class="desktop_7" unique-script-id="w-w-dm-id">
+               
+                <div class="responsive-container-block bigContainer">
+                  <div class="responsive-container-block Container">
+                    <p class="text-blk headingText">
+                      Gallery
+                    </p>
+                    
+                    <div class="responsive-container-block imageContainer">
+                      <div class="project">
+                        <div class="overlay">
+                          <div class="overlay-inner">
+                            <button class="close">
+                              Close X
+                            </button>
+                            <div class="hdImgs">
+                              <img alt="" class="againImg" src="./img/Hinewai_Reserve.jpg">
+                            </div>
+                          </div>
                         </div>
-                        <div class="column">
-                            <img class="demo cursor" src="img/Akatarawa_forest.jpg" style="width:100%" onclick="currentSlide(2)" alt="Cinque Terre">
+                        <img class="squareImg one" src="./img/Hinewai_Reserve.jpg">
+                        <div class="btn-box">
+                          <button class="btn">
+                            View
+                          </button>
                         </div>
-                        <div class="column">
-                            <img class="demo cursor" src="img/Akatarawa_forest.jpg" style="width:100%" onclick="currentSlide(3)" alt="Mountains and fjords">
+                      </div>
+                      <div class="project">
+                        <img class="squareImg two" src="./img/Redwoods.jpg">
+                        <div class="overlay">
+                          <div class="overlay-inner">
+                            <button class="close">
+                              Close X
+                            </button>
+                            <div class="hdImgs">
+                              <img class="squareImg two" src="./img/Redwoods.jpg">
+                            </div>
+                          </div>
                         </div>
-                        <div class="column">
-                            <img class="demo cursor" src="img/Akatarawa_forest.jpg" style="width:100%" onclick="currentSlide(4)" alt="Northern Lights">
+                        <div class="btn-box">
+                          <button class="btn">
+                            View
+                          </button>
                         </div>
-                        <div class="column">
-                            <img class="demo cursor" src="img/Akatarawa_forest.jpg" style="width:100%" onclick="currentSlide(5)" alt="Nature and sunrise">
+                      </div>
+                      <div class="project">
+                        <img class="squareImg three" src="./img/Hinewai_Reserve2.JPG">
+                        <div class="overlay">
+                          <div class="overlay-inner">
+                            <button class="close">
+                              Close X
+                            </button>
+                            <div class="hdImgs">
+                              <img alt="" class="againImg" src="./img/Hinewai_Reserve3.JPG">
+                            </div>
+                          </div>
                         </div>
-                        <div class="column">
-                            <img class="demo cursor" src="img/Akatarawa_forest.jpg" style="width:100%" onclick="currentSlide(6)" alt="Snowy Mountains">
+                        <div class="btn-box">
+                          <button class="btn">
+                            View
+                          </button>
                         </div>
+                      </div>
+                      <div class="project">
+                        <img class="squareImg four" src="./img/community_forest.jpg">
+                        <div class="overlay">
+                          <div class="overlay-inner">
+                            <button class="close">
+                              Close X
+                            </button>
+                            <div class="hdImgs">
+                              <img alt="" class="againImg" src="./img/community_forest.jpg">
+                            </div>
+                          </div>
+                        </div>
+                        <div class="btn-box">
+                          <button class="btn">
+                            View
+                          </button>
+                        </div>
+                      </div>
+                      <div class="project">
+                        <img class="squareImg five" src="./img/akatarawa_forest1.jpg">
+                        <div class="hdImg">
+                          <img alt="" class="againImg" src="./img/akatarawa_forest1.jpg">
+                        </div>
+                        <div class="btn-box">
+                          <button class="btn">
+                            View
+                          </button>
+                        </div>
+                      </div>
+                      <div class="project">
+                        <img class="squareImg one" src="./img/riverhead_forest.png">
+                        <div class="overlay">
+                          <div class="overlay-inner">
+                            <button class="close">
+                              Close X
+                            </button>
+                            <div class="hdImgs">
+                              <img alt="" class="againImg" src="./img/riverhead_forest.png">
+                            </div>
+                          </div>
+                        </div>
+                        <div class="btn-box">
+                          <button class="btn">
+                            View
+                          </button>
+                        </div>
+                      </div>
+                      <div class="project">
+                        <img class="squareImg two" src="./img/native-plant-ideas-hedging-examples.jpg">
+                        <div class="overlay">
+                          <div class="overlay-inner">
+                            <button class="close">
+                              Close X
+                            </button>
+                            <div class="hdImgs">
+                              <img alt="" class="againImg" src="./img/native-plant-ideas-hedging-examples.jpg">
+                            </div>
+                          </div>
+                        </div>
+                        <div class="btn-box">
+                          <button class="btn">
+                            View
+                          </button>
+                        </div>
+                      </div>
+                      <div class="project">
+                        <img class="squareImg three" src="./img/Hinewai_Reserve3.JPG">
+                        <div class="overlay">
+                          <div class="overlay-inner">
+                            <button class="close">
+                              Close X
+                            </button>
+                            <div class="hdImgs">
+                              <img alt="" class="againImg" src="./img/Hinewai_Reserve3.JPG">
+                            </div>
+                          </div>
+                        </div>
+                        <div class="btn-box">
+                          <button class="btn">
+                            View
+                          </button>
+                        </div>
+                      </div>
                     </div>
-            </div>
-
-            </center>
-
-
-
+                  </div>
+                </div>
+              </div>
             <!-- END IMAGE GALLERY-->
         </div>
     </div>
-    <script>
-        let slideIndex = 1;
-        showSlides(slideIndex);
-
-        function plusSlides(n) {
-            showSlides(slideIndex += n);
-        }
-
-        function currentSlide(n) {
-            showSlides(slideIndex = n);
-        }
-
-        function showSlides(n) {
-            let i;
-            let slides = document.getElementsByClassName("mySlides");
-            let dots = document.getElementsByClassName("demo");
-            let captionText = document.getElementById("caption");
-            if (n > slides.length) { slideIndex = 1 }
-            if (n < 1) { slideIndex = slides.length }
-            for (i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";
-            }
-            for (i = 0; i < dots.length; i++) {
-                dots[i].className = dots[i].className.replace(" active", "");
-            }
-            slides[slideIndex - 1].style.display = "block";
-            dots[slideIndex - 1].className += " active";
-            captionText.innerHTML = dots[slideIndex - 1].alt;
-        }
-    </script>
-
+  
     <div class="footer">
         <h2>GROUP 4 - Location System</h2>
     </div>
