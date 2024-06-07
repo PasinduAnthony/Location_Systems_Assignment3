@@ -51,32 +51,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Creating layer groups to have several "groups" to choose from in layer selection.
     // Reality only single layer choosing, but have not found a better solution.
-    const osmlayerGroup = L.layerGroup([osm]);
-    const openTopoMapGroup = L.layerGroup([openTopoMap]);
-
-    var map = L.map('map', {
-
-        layers: [osm, wmsLayer]
-    }).setView([-36.848450, 174.762192], 10);
-
-    var baseLayers = {
-        'OSM': osmlayerGroup,
-        'openTopoMap': openTopoMapGroup,
-    };
-
-    const overlays = {
-        'Exotic forest': exoticLayer,
-        'Mangrove': mangroveLayer,
-        'Native forest': nativeLayer,
-        'Forest cover': wmsLayer,
-        'Natural Forest': naturalForestLayer,
-        'indigenous': indigenous
-    };
+    
 
 
     // Add marker for Riverhead Forest
     var riverheadForestCoords = [-36.7124211, 174.5737027];
-    var riverheadForestMarker = L.marker(riverheadForestCoords).addTo(map);
+    var riverheadForestMarker = L.marker(riverheadForestCoords);
     riverheadForestMarker.bindPopup(
         '<b>Riverhead Forest</b><br>' +
         'Riverhead Forest is a former state-owned forest to the north-west of Auckland, New Zealand. ' +
@@ -89,7 +69,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Add marker for Waipoua Forest
     var waipouaForestCoords = [-35.667710, 173.620190];
-    var waipouaForestMarker = L.marker(waipouaForestCoords).addTo(map);
+    var waipouaForestMarker = L.marker(waipouaForestCoords);
     waipouaForestMarker.bindPopup(
         '<b>Waipoua Forest</b><br>' +
         'Waipoua, and the adjoining forests of Mataraua and Waima, make up the largest remaining tract of native forest in Northland.<br>' +
@@ -99,7 +79,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Add marker for Woodhill Forest
     var woodhillForestCoords = [-36.7469527, 174.3863889];
-    var woodhillForestMarker = L.marker(woodhillForestCoords).addTo(map);
+    var woodhillForestMarker = L.marker(woodhillForestCoords);
     woodhillForestMarker.bindPopup(
         '<b>Te Ngahere o Woodhill (Woodhill Forest)</b><br>' +
         'Woodhill Forest is a commercial exotic (pine) forest located to the northwest of Auckland, New Zealand. ' +
@@ -112,7 +92,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Add marker for Community Forest
     var communityForestCoords = [-43.090988, 172.451828];
-    var communityForestMarker = L.marker(communityForestCoords).addTo(map);
+    var communityForestMarker = L.marker(communityForestCoords);
     communityForestMarker.bindPopup(
         '<b>Community Forest</b><br>' +
         'Community forestry is an evolving branch of forestry whereby the local community plays a significant role in forest management and land use decision making by themselves in the facilitating support of government as well as change agents. ' +
@@ -122,7 +102,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Add marker for Akatarawa Forest
     var akatarawaForestCoords = [-41.034975, 175.0317408];
-    var akatarawaForestMarker = L.marker(akatarawaForestCoords).addTo(map);
+    var akatarawaForestMarker = L.marker(akatarawaForestCoords);
     akatarawaForestMarker.bindPopup(
         '<b>Akatarawa Forest</b><br>' +
         'Akatarawa Forest is a regional park in the Upper Hutt within the Wellington Region at the southern tip of the North Island of New Zealand. ' +
@@ -133,7 +113,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Add marker for Kohimarama Forest
     var kohimaramaForestCoords = [-36.779264, 174.4261796];
-    var kohimaramaForestMarker = L.marker(kohimaramaForestCoords).addTo(map);
+    var kohimaramaForestMarker = L.marker(kohimaramaForestCoords);
     kohimaramaForestMarker.bindPopup(
         '<b>Kohimarama Forest</b><br>' +
         'Kohimarama Forest is a remnant forest that has become disconnected from its cultural history and wider ecological landscape. ' +
@@ -142,28 +122,86 @@ document.addEventListener("DOMContentLoaded", function () {
         '<a href="https://www.kohiforest.com/" target="_blank">Kohimarama Forest Link</a>'
     );
 
+    const osmlayerGroup = L.layerGroup([osm]);
+    const openTopoMapGroup = L.layerGroup([openTopoMap]);
+    const forest_markers = L.layerGroup([waipouaForestMarker, kohimaramaForestMarker, akatarawaForestMarker, communityForestMarker, woodhillForestCoords])
+
+    var map = L.map('map', {
+
+        layers: [osm, wmsLayer]
+    }).setView([-36.848450, 174.762192], 10);
+
+    var baseLayers = {
+        'OSM': osmlayerGroup,
+        'openTopoMap': openTopoMapGroup,
+        'forest markers': forest_markers
+    };
+
+    const overlays = {
+        'Exotic forest': exoticLayer,
+        'Mangrove': mangroveLayer,
+        'Native forest': nativeLayer,
+        'Forest cover': wmsLayer,
+        'Natural Forest': naturalForestLayer,
+        'indigenous': indigenous,
+    };
+
+
+
+    L.Control.geocoder({
+    geocoder: new L.Control.Geocoder.Nominatim({
+        geocodingQueryParams: {
+            "viewbox": "165.75,-47.31,179.36,-33.87",
+            "bounded": 1
+        }
+    })}).addTo(map);
+
     var layerControl = L.control.layers(baseLayers, overlays).addTo(map);
 
     var yearLabel = document.getElementById("slider-label");
     var slider = document.getElementById("slider-year");
 
+    // Define the event handler function
+function updateMap() {
+    var year = slider.value;
+    yearLabel.textContent = year;
 
-    slider.addEventListener("input", function () {
-        var year = slider.value;
-        console.log("Slider value: ", year);
-        yearLabel.textContent = year;
-        if (map.hasLayer(wmsLayer)) {
-            wmsLayer.setParams({
-                CQL_FILTER: 'destock_yr=' + year
-            });
-        }
-        if (map.hasLayer(indigenous)) {
-            indigenous.setParams({
-                CQL_FILTER: 'year=' + year
-            })
-        }
-    })
+    console.log("Slider value: ", year);
+    
+    if (document.getElementById('All_years_state').style.backgroundColor === 'green') {
+        yearLabel.textContent = "All years";
+        wmsLayer.setParams({
+            CQL_FILTER: ''
+        });
+    } else {
+        wmsLayer.setParams({
+            CQL_FILTER: 'destock_yr=' + year
+        });
+    }
+
+    if (map.hasLayer(indigenous)) {
+        indigenous.setParams({
+            CQL_FILTER: 'year=' + year
+        });
+    }
+}
+
+// Attach the event handler to the slider input event
+slider.addEventListener("input", updateMap);
+
+// Attach the event handler to the button click event
+document.getElementById('All_years_state').addEventListener('click', function() {
+    if (this.style.backgroundColor === 'green') {
+        this.style.backgroundColor = 'red';
+    } else {
+        this.style.backgroundColor = 'green';
+    }
+    updateMap(); // Call the updateMap function when the button is clicked
 });
+
+})
+
+
 
 // Function to fetch the IP address
 function fetchIP() {
