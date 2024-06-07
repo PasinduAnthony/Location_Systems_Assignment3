@@ -155,3 +155,114 @@ body {
     height: 100%;
  
 }
+
+.button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 12px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    background-color: black;
+}
+
+.button.green {
+    background-color: hsl(158, 66%, 22%); /* Green */
+}
+
+.button.red {
+    background-color: red;
+}
+.button::after {
+    content: attr(data-hover-text);
+    color: black;
+    background: white;
+    padding: 5px 10px;
+    border-radius: 8px;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+    pointer-events: none;
+}
+
+.button:hover::after {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* LEGEND Styling */
+
+#legend{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 5000;
+    margin-bottom: 30px;
+    margin-right: 10px;
+    background: white;
+    border-radius: 5px;
+    padding: 5px 10px;
+    box-shadow: 0 0 0 2px rgb(0, 0, 0 / 10%);
+} 
+
+
+
+.my-legend .legend-title {
+    text-align: left;
+    margin-bottom: 8px;
+    font-weight: bold;
+    font-size: 90%;
+    }
+  .my-legend .legend-scale ul {
+    margin: 0;
+    padding: 0;
+    float: left;
+    list-style: none;
+    }
+  .my-legend .legend-scale ul li {
+    display: block;
+    float: left;
+    width: 50px;
+    margin-bottom: 6px;
+    text-align: center;
+    font-size: 80%;
+    list-style: none;
+    }
+
+
+
+
+.my-legend ul.legend-labels li span {
+    z-index: 5000;
+    display: block;
+    float: left;
+    height: 15px;
+    width: 50px;
+}
+
+.my-legend .legend-source {
+    font-size: 70%;
+    color: #999;
+    clear: both;
+}
+
+.my-legend a {
+    z-index: 5000;
+    color: #777;
+}
+
+#yearOnMap{
+    z-index: 5000; 
+    position:absolute;
+    margin-bottom: 120px;
+    background: white;
+    border-radius: 5px;
+    padding: 5px 10px;
+    box-shadow: 0 0 0 2px rgb(0, 0, 0 / 10%);
+}

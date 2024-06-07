@@ -22,8 +22,9 @@
     <div class="header">
         <h1>New Zealand Forest Cover</h1>
     </div>
-    <div class="navbar">
-        <a href="home.html" class="active">Home</a>
+    <div class="navbar" style="z-index: 10000;">
+        <a href="index.html" >Home</a>
+        <a href="forestcover.html">Forest Cover</a>
         <a href="nativeforest.html">Native Forests </a>
         <a href="exoticforest.html">Exotic Forest</a>
         <a href="mangrove.html">Mangrove </a>
@@ -56,9 +57,25 @@
         </div>
         <div class="main">
                 <div class="fakeimg" style="height:600px;">
-                <div id="map" style="height:570px;"></div>
-                <script type="module" src="src/index.js"></script>
-            </div>
+
+                        <div id="mapExotic" style="height:570px;">
+                        
+                            <div id="legend">
+                                <div class='my-legend' style="z-index: 5000;">
+                                    <div class='legend-title'>Layer Colours</div>
+                                    <div class='legend-scale'>
+                                        <ul class='legend-labels'>
+                                            <li><span style='background:#cceb5a;'></span>Exotic</li>                                    
+                                        </ul>
+                                    </div>
+                                    <!-- <div class='legend-source'>Source: <a href="#link to source">Name of source</a></div> -->
+                                </div>
+                            </div>
+
+                        </div>
+
+                    <script type="module" src="src/index.js"></script>
+                </div>
             <p>Some text..</p>
             <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
         </div>
@@ -66,5 +83,7 @@
     <div class="footer">
         <h2>GROUP 4 - Location System</h2>
     </div>
+
+    <script src="src/exotic.js"></script>
 </body>
 </html>

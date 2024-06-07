@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" data-page="forestcover">
+<head>
+    <title>New Zealand Forest Cover</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--ADDING CSS-->
+    <link rel="stylesheet" href="./src/homestyle.css" type="text/css" />
+    <link rel="stylesheet" href="./src/search.css" type="text/css" />
+
+    <!--SEARCH FUNCTION-->
+    <!-- <script src="customSearchFunction.js"></script> -->
+
+    <!--ADDING MAP STYPE-->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/openlayers@6.5.0/dist/ol.js"></script>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <!-- Leaflet Geocoder JavaScript -->
+    <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+    <script src="./src/search.js" defer></script>
+    <style>
+        #map {
+            height: 400px;
+        }
+    </style>
+    <!--END MAP STYLE-->
+</head>
+<body>
+
+    <div class="header">
+        <h1>New Zealand Forest Cover</h1>
+    </div>
+    <div class="navbar" style="z-index: 10000;">
+        <a href="index.html">Home</a>
+        <a href="forestcover.html" class="active">Forest Cover</a>
+        <a href="nativeforest.html">Native Forests </a>
+        <a href="exoticforest.html">Exotic Forest</a>
+        <a href="mangrove.html">Mangrove </a>
+        <a href="indigenousForest.html">Indigenous Forest</a>
+        <a href="naturalForest.html">Natural Forest</a>
+        <a href="nature.html">Nature</a>
+        <a href="gallery.html">Gallery</a>
+    </div>
+    <div class="row">
+        <div class="side">
+
+            <div class="search-wrapper">
+                <form class="example">
+                    <input type="text" placeholder="Search.." id="search" name="search" data-search>
+                    <button type="submit" onclick="search()"><i class="fa fa-search">Search</i></button>
+                </form>
+              </div>
+
+            <h2>View New Zealand Forest Cover</h2>
+
+            <div class="slidecontainer">
+                <p>Year Selected: <span id="slider-label">2018</span></p>
+                <input type="range" min="2012" max="2022" value= "2018" class="slider" id="slider-year">
+            </div>
+      <br />
+            <img src="img/NZ_FOREST.jpg" width="400" height="250" alt="forest New Zealand" />
+
+            <h2>Forest Information:</h2>
+
+            <div class="forest-cards" data-forest-cards-container></div>
+            <template data-forest-template>
+                <div class="card">
+                  <div class="header" data-header></div>
+                  <div class="body" data-body></div>
+                </div>
+              </template>
+
+            <h4>2016 Land Use Classification</h4>
+            <p>
+                <a href="https://www.mpi.govt.nz/dmsdocument/36633-forest-map-TUR2.pdf" target="_blank"><img src="img/2016_land_use.png" width="200" height="300" /></a>
+            </p>
+        </div>
+        <div class="main">
+            <div class="fakeimg" style="height:600px;">
+                <div style="height:600px;">
+
+                    <div id='map' style="height:570px;">
+
+                        <div id="legend">
+                            <div class='my-legend' style="z-index: 5000;">
+                                <div class='legend-title'>Layer Colours</div>
+                                <div class='legend-scale'>
+                                    <ul class='legend-labels'>
+                                        <li><span style='background:#d6684f;'></span>Forest</li>
+                                    </ul>
+                                </div>
+                                <!-- <div class='legend-source'>Source: <a href="#link to source">Name of source</a></div> -->
+                            </div>
+                        </div>
+
+                    </div>
+                    <p></p>
+                    <p>Our interactive web mapping application allows you to explore the breathtaking landscapes of New Zealand's forests. New Zealand has a diverse range of forest ecosystems, from the lush green expanses of native bushland to the orderly rows of exotic plantations. Our platform not only allows you to explore the complexities of these diverse forests, but it also includes a curated photo gallery highlighting their beauty. Furthermore, it contains useful information about other land cover features in New Zealand.</p>
+                    <p>Please note that this website was created solely for project purposes, and that all information and data used came from open-access repositories. This simple yet robust web mapping site makes use of the skills, knowledge, and techniques learned in the course 158740 Location Systems: Spatial Databases, Tools, and Applications. Furthermore, it demonstrates the possibility of further expansion, as additional data can be incorporated in the future using the same methodologies demonstrated in the functionality of this website.</p>
+                </div>
+            </div>
+        </div>
+      </div>
+    <div class="footer">
+       <h2>GROUP 4 - Location System</h2>
+   </div>
+   <script src="src/index.js"></script>
+</body>
+</html>
