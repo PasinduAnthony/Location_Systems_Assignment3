@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+﻿﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <title>NZ Native Forest</title>
@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="./src/homestyle.css" type="text/css" />
     <link rel="stylesheet" href="./src/popimagestyle.css" type="text/css" />
     <link rel="stylesheet" href="./src/search.css" type="text/css" />
+    <link rel="stylesheet" href="./src/gallery.css" type="text/css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="./src/gallery_JS.js"></script> 
 
 </head>
 <body>
@@ -17,190 +20,194 @@
         <h1>New Zealand Forest Cover</h1>
     </div>
 
-    <div class="navbar">
-        <a href="index.html">Home</a>
-        <a href="forestcover.html">Forest Cover</a>
-        <a href="nativeforest.html">Native Forests </a>
-        <a href="exoticforest.html">Exotic Forest</a>
-        <a href="mangrove.html">Mangrove </a>
-        <a href="indigenousForest.html">Indigenous Forest</a>
-        <a href="naturalForest.html">Natural Forest</a>
-        <a href="nature.html" class="active">Nature</a>
-        <a href="gallery.html">Gallery</a>
-    </div>
+    <div class="navbar" style="z-index: 10000;">
+      <a href="index.html">Home</a>
+      <a href="nativeforest.html">Native Forests </a>
+      <a href="exoticforest.html">Exotic Forest</a>
+      <a href="mangrove.html">Mangrove </a>
+      <a href="indigenousForest.html">Indigenous Forest</a>
+      <a href="naturalForest.html">Natural Forest</a>
+      <a href="nature.html" class="active">Nature</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="help.html" style="position: absolute; right: 0;">Help</a>
+  </div>
         <div class="main">
-            <!-- SEARCH -->
-            <form class="example" action="/action_page.php">
-                <input type="text" placeholder="Search.." name="search">
-                <button type="submit"><i class="fa fa-search">Search</i></button>
-            </form>
-            <!-- END SIMPLE IMAGE POP Guide to planting-->
-            </p>
-            <!--IMAGE GALLERY-->
-            <div class="row">
-                <div class="column">
-                    <div class="card">
-                        <img src="./img/native-forest.jpg" alt="Jane" style="width:100%">
-                        <div class="container">
-                            <h2>FOREST 1</h2>
-                            <p class="title">NZ AUCKLAND</p>
-                            <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-                            <p></p>
-                            <p><button class="button">More Details</button></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="column">
-                    <div class="card">
-                        <img src="./img/native-forest.jpg" alt="Jane" style="width:100%">
-                        <div class="container">
-                            <h2>FOREST 2</h2>
-                            <p class="title">NZ AUCKLAND</p>
-                            <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-                            <p></p>
-                            <p><button class="button">More Details</button></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="column">
-                    <div class="card">
-                        <img src="./img/native-forest.jpg" alt="Jane" style="width:100%">
-                        <div class="container">
-                            <h2>FOREST 3</h2>
-                            <p class="title">NZ AUCKLAND</p>
-                            <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-                            <p></p>
-                            <p><button class="button">More Details</button></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="column">
-                    <div class="card">
-                        <img src="./img/native-forest.jpg" alt="Jane" style="width:100%">
-                        <div class="container">
-                            <h2>FOREST 4</h2>
-                            <p class="title">NZ AUCKLAND</p>
-                            <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-                            <p></p>
-                            <p><button class="button">More Details</button></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="column">
-                    <div class="card">
-                        <img src="./img/native-forest.jpg" alt="Jane" style="width:100%">
-                        <div class="container">
-                            <h2>FOREST 5</h2>
-                            <p class="title">NZ AUCKLAND</p>
-                            <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-                            <p></p>
-                            <p><button class="button">More Details</button></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="column">
-                    <div class="card">
-                        <img src="./img/native-forest.jpg" alt="Jane" style="width:100%">
-                        <div class="container">
-                            <h2>FOREST 6</h2>
-                            <p class="title">NZ AUCKLAND</p>
-                            <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-                            <p></p>
-                            <p><button class="button">More Details</button></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="column">
-                    <div class="card">
-                        <img src="./img/native-forest.jpg" alt="Jane" style="width:100%">
-                        <div class="container">
-                            <h2>FOREST 7</h2>
-                            <p class="title">NZ AUCKLAND</p>
-                            <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-                            <p></p>
-                            <p><button class="button">More Details</button></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="column">
-                    <div class="card">
-                        <img src="./img/native-forest.jpg" alt="Jane" style="width:100%">
-                        <div class="container">
-                            <h2>FOREST 8</h2>
-                            <p class="title">NZ AUCKLAND</p>
-                            <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-                            <p></p>
-                            <p><button class="button">More Details</button></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="column">
-                    <div class="card">
-                        <img src="./img/native-forest.jpg" alt="Jane" style="width:100%">
-                        <div class="container">
-                            <h2>FOREST 9</h2>
-                            <p class="title">NZ AUCKLAND</p>
-                            <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-                            <p></p>
-                            <p><button class="button">More Details</button></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="column">
-                    <div class="card">
-                        <img src="./img/native-forest.jpg" alt="Jane" style="width:100%">
-                        <div class="container">
-                            <h2>FOREST 10</h2>
-                            <p class="title">NZ AUCKLAND</p>
-                            <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-                            <p></p>
-                            <p><button class="button">More Details</button></p>
-                        </div>
-                    </div>
-                </div>
             </div>
+            <!--IMAGE GALLERY-->
+            <div class="desktop_7" unique-script-id="w-w-dm-id">
+                <div class="responsive-container-block bigContainer">
+                  <div class="responsive-container-block Container">
+                    <p class="text-blk headingText">
+                    </p>
+                    <div class="responsive-container-block optionsContainer">
+                      <p class="text-blk list all active" data-filter="all">
+                        All
+                      </p>
+                      <p class="text-blk list" data-filter="one">
+                        Trees
+                      </p>
+                      <p class="text-blk list" data-filter="two">
+                        Flowers
+                      </p>
+                      <p class="text-blk list" data-filter="three">
+                        Wildlife
+                      </p>
+                      <p class="text-blk list" data-filter="four">
+                        Landscape
+                      </p>
+                      <p class="text-blk list" data-filter="four">
+                        Spring
+                      </p>
+                    </div>
+                    <div class="responsive-container-block imageContainer">
+                      <div class="project">
+                        <div class="overlay">
+                          <div class="overlay-inner">
+                            <button class="close">
+                              Close X
+                            </button>
+                            <div class="hdImgs">
+                              <img alt="" class="againImg" src="./img/flower2.jpg">
+                            </div>
+                          </div>
+                        </div>
+                        <img class="squareImg two" src="./img/flower2.jpg">
+                        <div class="btn-box">
+                          <button class="btn">
+                            View
+                          </button>
+                        </div>
+                      </div>
+                      <div class="project">
+                        <img class="squareImg two" src="./img/flower1.jpg">
+                        <div class="overlay">
+                          <div class="overlay-inner">
+                            <button class="close">
+                              Close X
+                            </button>
+                            <div class="hdImgs">
+                              <img class="squareImg two" src="./img/flower1.jpg">
+                            </div>
+                            <p>The best time to plant Dahlias here in NZ is 
+                                September or October, but can be planted 
+                                anytime from mid August through to late December.
+                                To know more about Dalhia <a href="https://nzbulbs.co.nz/media/ecom/factsheets/dahlias.pdf" target="_blank"> click here</a></p>
+                          </div>
+                        </div>
+                        <div class="btn-box">
+                          <button class="btn">
+                            Dahlias
+                          </button>
+                        </div>
+                      </div>
+                      <div class="project">
+                        <img class="squareImg three" src="./img/Hinewai_Reserve.jpg">
+                        <div class="overlay">
+                          <div class="overlay-inner">
+                            <button class="close">
+                              Close X
+                            </button>
+                            <div class="hdImgs">
+                              <img alt="" class="againImg" src="./img/Hinewai_Reserve.jpg">
+                            </div>
+                          </div>
+                        </div>
+                        <div class="btn-box">
+                          <button class="btn">
+                            View
+                          </button>
+                        </div>
+                      </div>
+                      <div class="project">
+                        <img class="squareImg four" src="./img/Hinewai_Reserve.jpg">
+                        <div class="overlay">
+                          <div class="overlay-inner">
+                            <button class="close">
+                              Close X
+                            </button>
+                            <div class="hdImgs">
+                              <img alt="" class="againImg" src="./img/Hinewai_Reserve.jpg">
+                            </div>
+                          </div>
+                        </div>
+                        <div class="btn-box">
+                          <button class="btn">
+                            View
+                          </button>
+                        </div>
+                      </div>
+                      <div class="project">
+                        <img class="squareImg five" src="./img/Hinewai_Reserve.jpg">
+                        <div class="hdImg">
+                          <img alt="" class="againImg" src="./img/Hinewai_Reserve.jpg">
+                        </div>
+                        <div class="btn-box">
+                          <button class="btn">
+                            View
+                          </button>
+                        </div>
+                      </div>
+                      <div class="project">
+                        <img class="squareImg one" src="./img/Hinewai_Reserve.jpg">
+                        <div class="overlay">
+                          <div class="overlay-inner">
+                            <button class="close">
+                              Close X
+                            </button>
+                            <div class="hdImgs">
+                              <img alt="" class="againImg" src="./img/Hinewai_Reserve.jpg">
+                            </div>
+                          </div>
+                        </div>
+                        <div class="btn-box">
+                          <button class="btn">
+                            View
+                          </button>
+                        </div>
+                      </div>
+                      <div class="project">
+                        <img class="squareImg two" src="./img/Hinewai_Reserve.jpg">
+                        <div class="overlay">
+                          <div class="overlay-inner">
+                            <button class="close">
+                              Close X
+                            </button>
+                            <div class="hdImgs">
+                              <img alt="" class="againImg" src="./img/Hinewai_Reserve.jpg">
+                            </div>
+                          </div>
+                        </div>
+                        <div class="btn-box">
+                          <button class="btn">
+                            View
+                          </button>
+                        </div>
+                      </div>
+                      <div class="project">
+                        <img class="squareImg three" src="./img/Hinewai_Reserve.jpg">
+                        <div class="overlay">
+                          <div class="overlay-inner">
+                            <button class="close">
+                              Close X
+                            </button>
+                            <div class="hdImgs">
+                              <img alt="" class="againImg" src="./img/Hinewai_Reserve.jpg">
+                            </div>
+                          </div>
+                        </div>
+                        <div class="btn-box">
+                          <button class="btn">
+                            View
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             <!-- END IMAGE GALLERY-->
-        </div>
     </div>
-    <!--SIMPLE IMAGE POP Guide to planting-->
-    <h2>Images Here...</h2>
-    <img id="myImg" src="./img/native-forest-restoration-guide.jpg" style="width:70%;max-width:200px">
-
-    <!-- The Modal -->
-    <div id="myModal" class="modal">
-        <span class="close">&times;</span>
-        <img class="modal-content" id="img01">
-        <div id="caption"></div>
-
-    </div>
-
-
-    <a href="http://www.openstreetmap.org/?lat=52.08825&lon=5.14009&zoom=17&layers=M">
-        <img src="./img/native-forest.jpg" style="width:70%;max-width:200px" />
-
-        <script>
-// Get the modal
-var modal = document.getElementById("myModal");
-
-// Get the image and insert it inside the modal - use its "alt" text as a caption
-var img = document.getElementById("myImg");
-var modalImg = document.getElementById("img01");
-var captionText = document.getElementById("caption");
-img.onclick = function(){
-  modal.style.display = "block";
-  modalImg.src = this.src;
-  captionText.innerHTML = this.alt;
-}
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
-}
-        </script>
-
-        <iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.topomap.co.nz/NZTopoMapEmbedded?v=2&ll=-40.713956,-177.297363&z=7"></iframe><br /><small><a href="https://www.topomap.co.nz/NZTopoMap?v=2&ll=-40.713956,-177.297363&z=7" style="text-align:left">View Larger Topographic Map</a></small>
-
+ 
         <div class="footer">
             <h2>GROUP 4 - Location System</h2>
         </div>

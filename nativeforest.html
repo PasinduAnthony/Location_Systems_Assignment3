@@ -28,9 +28,8 @@
         <h1>New Zealand Forest Cover</h1>
     </div>
 
-    <div class="navbar">
-        <a href="index.html" >Home</a>
-        <a href="forestcover.html">Forest Cover</a>
+    <div class="navbar" style="z-index: 10000;">
+        <a href="index.html">Home</a>
         <a href="nativeforest.html" class="active">Native Forests </a>
         <a href="exoticforest.html">Exotic Forest</a>
         <a href="mangrove.html">Mangrove </a>
@@ -38,6 +37,7 @@
         <a href="naturalForest.html">Natural Forest</a>
         <a href="nature.html">Nature</a>
         <a href="gallery.html">Gallery</a>
+        <a href="help.html" style="position: absolute; right: 0;">Help</a>
     </div>
 
     <div class="row">
@@ -69,7 +69,19 @@
         <div class="main">
             <div class="fakeimg" style="height:600px;">
                 <!--INSER MAP Native Forest-->
-                <div id="map" style="width: 950px; height: 570px;"></div>
+                <div id="mapNativeForest" style="height: 570px;">
+                    <div id="legend">
+                        <div class='my-legend' style="z-index: 5000;">
+                            <div class='legend-title'>Layer Colours</div>
+                            <div class='legend-scale'>
+                                <ul class='legend-labels'>                                    
+                                    <li><span style='background:#77f86a;'></span>Native</li>
+                                </ul>
+                            </div>
+                            <!-- <div class='legend-source'>Source: <a href="#link to source">Name of source</a></div> -->
+                        </div>
+                    </div>
+                </div>
                 <script>
 		const map = L.map('map').setView([-36.7282, 174.7097], 10);
 
@@ -107,6 +119,6 @@
         <h2>GROUP 4 - Location System</h2>
     </div>
 
-
+    <script src="src/nativeForest.js"></script>
 </body>
 </html>

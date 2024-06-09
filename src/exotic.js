@@ -6,9 +6,8 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 
-
-    var mangroveLayer1 = L.tileLayer.wms('http://10.2.252.170:8080/geoserver/Group4/wms', {
-        layers: 'Group4:nz-mangrove-polygons-topo-150k',
+    var naturalForestLayer1 = L.tileLayer.wms('http://10.2.252.170:8080/geoserver/Group4/wms', {
+        layers: 'Group4:nz-exotic-polygons-topo-150k',
         format: 'image/png',
         transparent: true,
     });
@@ -23,9 +22,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const osmlayerGroupM = L.layerGroup([osm1]);
     const openTopoMapGroupM = L.layerGroup([openTopoMap]);
 
-     L.map('mapMangrove', {
+     L.map('mapExotic', {
 
-        layers: [osm1, mangroveLayer1]
+        layers: [osm1, naturalForestLayer1]
     }).setView([-36.848451, 174.762191], 10);
 
     var baseLayers = {
