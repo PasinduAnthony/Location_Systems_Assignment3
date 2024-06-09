@@ -168,7 +168,7 @@ document.addEventListener("DOMContentLoaded", function () {
     
 //    Comparision view 
 
-    var wmsLayer2 = L.tileLayer.wms('https://158740g4.massey.ac.nz:8080/geoserver/Group4/wms', {
+    var wmsLayer2 = L.tileLayer.wms('http://10.2.252.170:8080/geoserver/Group4/wms', {
         layers: 'Group4:lucas-nz-forest-clearing-2008-2022-v022',
         format: 'image/png',
         transparent: true,
